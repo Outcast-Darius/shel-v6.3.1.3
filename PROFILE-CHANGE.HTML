@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile edit</title>
+<style>
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+}
+body{
+    background: linear-gradient(to  #1b03f5 10% ,white 90%);
+    padding: 0;
+    margin: 0;
+    transition: all 0.8s ease-in-out;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+form{ 
+ width: 40%;
+ height: 55vh;
+ box-shadow: 0 0 5px ;
+ border-radius: 1em;
+ z-index: 50;
+ margin-top: 6em;
+ padding: 1em;
+ box-sizing: border-box;
+ justify-content: center;
+ align-items: center;
+ 
+}
+header{
+width: 100%;
+height: 4em;
+box-shadow: 0 0 10px black, 0 0 10px white;
+z-index: 1000;
+position: relative;
+background: rgba(0,0,0,0.9 );
+text-align: center;
+justify-content: center;
+padding-top: 2em;
+
+}
+nav{
+    display: flex;;
+    text-align: center;    
+    align-items: center;
+    float: left;    
+    margin-left: 35%;
+
+}
+nav a{
+    padding: 1em 5em 0 0;
+    text-decoration: none;
+    color: white;
+
+}
+nav a:hover{
+color: blue;
+transition: .5s ease-in-out 
+
+}
+nav a :active{
+    color: brown;
+
+
+}
+input{
+height: 2.5em;
+width: 98%;
+border-radius: 1em;
+border: 1px solid black;
+outline: none;
+padding-left: 1.5em;
+font-size: 15px;
+font-family: 'Times New Roman', Times, serif;
+letter-spacing: 1.5px;
+
+
+}
+#change{
+    background: linear-gradient(to left,white ,blue );
+    border-radius: 1.5em;
+    width: auto;
+    height: 2.5em;
+    border: none;
+    box-shadow: 0 0 10px;
+    float: right;    
+    bottom: 0;
+    padding: 0.625em 1em;
+    margin-top: 1em;
+
+
+}
+fieldset{
+border: none;
+font-weight:700;
+
+}
+input:active{
+background: white;
+
+
+
+}
+h2{
+    color: orangered;
+    text-align: center;
+
+}
+body.dark{
+    background: #080808 !important;
+    color: white;
+
+}
+body.light{
+    background: #f0f0f0 !important;
+    color: black;
+
+}
+body.developers{
+    background: linear-gradient(to right,rgb(7, 7, 51),rgb(3, 3, 158)) !important;
+    color: #00ff00;
+
+}
+body.dark a, body.developers a{
+color: white;
+
+}
+nav li{
+list-style: none;
+
+}
+
+
+
+
+
+
+
+
+@media(max-width:768px){
+form{
+    width: 70%;
+    height: 65vh;
+
+}
+nav{
+    margin-left: 9%;
+
+
+
+}
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+</style>
+
+<script>
+
+function setTheme(theme){
+    
+    document.body.className="";
+    document.body.classList.add(theme);
+    localStorage.setItem("theme",theme);
+    
+}
+
+
+  window.addEventListener("load",()=>{
+    const localTheme=localStorage.getItem("theme") || "light";
+    setTheme(localTheme);
+    
+    document.getElementById(localTheme).checked=true;
+    
+    
+});</script>
+
+
+
+
+</head>
+<body>
+    
+     <header>
+    <nav>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="REPORTS.HTML">Reports</a></li>
+    <li><a href="PROFILE.HTML">Profile</a></li>
+    <li><a href="SETTINGS.HTML">Settings</a></li>
+    
+    
+    
+    </nav>
+    
+    </header>
+    
+    
+    
+    <form action="">
+        <h2>PROFILE EDIT</h2>
+    
+    <fieldset>
+        <fieldset>
+            <legend>Username</legend>
+            <input type="text" id="username" placeholder=" e.g Outcast" >
+    
+         </fieldset>
+         <fieldset>
+            <legend>Names</legend>
+            <input type="text" id="name" placeholder="e.g.Outcast DHO">
+    
+         </fieldset>
+         <fieldset>
+            <legend>Room</legend>
+            <input type="text" id="room" placeholder="e.g.709">
+    
+         </fieldset>
+         <fieldset>
+            <legend>Profile Photo</legend>
+            <input type="file" name="photo" id="photo" accept="image/*">
+            
+         </fieldset>
+    
+    </fieldset>
+    
+    <button id="change">Change</button>
+    </form>
+    
+    
+    <script>
+    
+    
+    
+    const roomno=document.getElementById("room");
+    const usernames=document.getElementById("username");
+    const names=document.getElementById("name");
+    
+    const room=localStorage.getItem("room");
+    const username=localStorage.getItem("username");
+    const named=localStorage.getItem("name");
+    
+    const rooms=JSON.parse(room);
+    const userName=JSON.parse(username);
+    const users=JSON.parse(named);
+    
+    
+    roomno.value=rooms;
+    usernames.value=userName;
+    names.value=users;
+    
+    const change=document.getElementById("change",(e)=>{
+    e.preventDefault();
+    const room=document.getElementById("room").value.trim();
+    const username=document.getElementById("username").value.trim();
+    const savedname=document.getElementById("name").value.trim();
+    
+    if(room && username && savedname){
+        
+        window.location.href="PROFILE.HTML";
+        
+        localStorage.setItem("name",JSON.stringify(room));        
+        localStorage.setItem("username",JSON.stringify(username));        
+        localStorage.setItem("room",JSON.stringify(room));                       
+        
+        
+        setTimeout(()=>{ 
+    
+         alert("Profile edit done succesfully.");   
+            
+        },2000);    
+    
+    
+    }
+    else{
+    
+    alert("No field must be empty.");
+    return;
+    
+    }
+    });
+    
+    
+    
+    
+    </script>
+    
+</body>
+</html>

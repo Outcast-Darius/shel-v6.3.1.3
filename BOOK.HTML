@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>room booking</title>
+
+<style>
+    body{
+       background:linear-gradient(to right,#020224,#4c23bb);    
+        padding: 0;    
+        margin: 0;
+        background-blend-mode: multiply;
+        align-items: center;
+        display: flex   ;
+        flex-direction: column;
+        min-height: 100vh;
+        margin-top: 0;
+        padding-top: 0;    
+        transition: all 0.8s ease-in-out;
+        background-image: ();
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+    }
+    form {
+        box-sizing: border-box;
+        border-radius: 10px;
+        width: 40%;
+        background:linear-gradient(to left,#0f0f50,#564979);
+        padding: 1rem;
+        align-items: center;
+        box-sizing: 0 0 15px;
+        animation: glow 2s infinite alternate;
+        transition: all 0.8s ease-in-out;
+        backdrop-filter: blur(40px);
+        background-color: green;
+        display: block;
+
+    }
+    h2{
+        text-align: center;
+        color: linear-gradient(to right, #c92b7a, #f80303);
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 1.2rem;
+
+    }
+    fieldset{
+        border: none;
+        margin-bottom: 0;
+        padding: 0;
+
+    }
+    input{
+        width: 85%;
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        outline: none;        
+               
+    }
+    #post{
+        width: 65%;
+        padding: 0.7rem;
+        margin-top: 1rem;
+        border: none;
+        border-radius: 5px;
+        background: linear-gradient(to right, #c92b7a, #f80303);
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-left: 17.5%;        
+        
+
+    }
+    sup{
+        color: red;
+        font-size: smaller;
+
+    }
+    header{
+        width: 100%;
+         background: linear-gradient(to left,#150b31,#200b09);
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        
+    }
+    nav{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        margin-left: 25%;
+        width: 50%;
+        border-radius: 0.625rem;
+        background-color: white;
+        height: 2rem;
+
+    }   
+    nav a{
+        color: black;
+        text-decoration: none;
+        margin: 0 1rem;
+        font-size: 1rem;
+
+    }
+    nav a:hover{
+        font-weight: bold;
+        transition: color 0.3s ease;
+
+    }
+    @keyframes glow {
+        from {
+            box-shadow: 0 0 5px #330432, 0 0 15px #3a0239, 0 0 30px #30042f, 0 0 40px #2c022b;
+        }
+        to {
+            box-shadow: 0 0 20px #380437, 0 0 30px #2e022d, 0 0 40px #3a0239, 0 0 50px #330232;
+        }
+    }
+    @media (max-width: 768px) {
+        form {
+            width: 80%;
+        }
+        nav a{
+            font-size: 0.9rem;
+            padding-left: 0.15rem
+        }
+    nav{
+        width: 80%;
+        margin-left: 7.5%;
+
+        }
+        #sign{
+    margin-left: 85%;
+    font-size: 10px;
+     margin-top: -1rem;       
+
+}
+    input{    
+     height: 30px;   
+        
+    }
+        
+        
+    }
+    select{
+        width: 66%;
+        padding: 0.5rem;
+        margin-top: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        height: 1.8rem;
+        outline: none;
+
+    }
+    label{
+        font-weight: 700;
+        font-size: 0.8rem;
+        font-family: 'Times New Roman', Times, serif;
+        margin-top: 0.5rem;
+
+    }
+#sign{
+    position: absolute;
+    right: 2rem;
+   margin-top: -1rem;
+    padding: 0.5rem 1rem;
+    background-color: #03b0f5;
+    color: white;
+    border: none;
+    border-radius: 0.925rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 5px #03b0f5;
+     right: 1rem;
+        top: 3.2rem;
+        padding: 0.2rem;
+    display: block;
+
+}
+.profile{
+    margin-left: 92%;
+    margin-top: -1.82rem;
+    margin-bottom: 1rem;
+    width: 2rem;    
+    height: 2rem;
+    overflow: hidden;
+    border-radius: 50%;
+
+
+
+}
+image{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%; 
+    object-fit: cover;
+    overflow: hidden;
+    display: block;
+
+}
+#sign a{
+    text-decoration: none;
+    color:white;
+
+}
+sub{
+    color: white;
+
+}
+.modal{       
+        display: none;
+        width: 100%;
+        min-height: 100vh;
+        background-color: rgba(10, 4, 32, 0.9);
+        justify-content: center;
+        overflow: hidden;
+        z-index: 1500;        
+        text-align: center;
+        position: relative;    
+        align-items: center;
+
+ }
+  .modal-window{       
+        display: block;
+        width: 60%;
+        height: 40%;
+        background-color: rgba(253, 252, 252,0.9 );
+        justify-content: center;
+        z-index: 1100;
+        float: none;
+        margin-left: 20%;      
+        border-radius: 0.625em;        
+        box-shadow: 0 0 15px ;
+        margin-top: 15%;        
+        color: black;
+        
+
+ }      
+  .modal>input{
+        width: 90%;
+        
+  }
+  .modal-window button{      
+        border: none;
+        border-radius: 0.925em;
+        padding: 0.5em 0.6em;
+        background: linear-gradient(45deg, white,orangered );
+        box-shadow: 0 0 10px;
+        margin-top: 1em;
+        font-weight: 700;
+        margin-bottom: 1em;
+        
+  }
+ .modal-window button:hover{       
+    background: linear-gradient(to top,orangered,white);      
+    transition: all .6s ease-in-out;    
+    padding: 0.5em 0.925em;    
+    font-size: 16px;    
+    border-radius: 1em;    
+    box-shadow: 0 2px 5px rgb(3, 243, 3);    
+    color: rgb(2, 252, 14);    
+    font-weight: 700;    
+    text-shadow: 0 1px 1px black ;    
+        
+ }
+body.dark{
+    background-color: #1a1919 !important;
+    color: white;
+
+}
+body.light{
+    background-color: #f0f0f0 !important;
+    color: black;
+
+}
+body.developers{
+    background: linear-gradient(to right,rgb(7, 7, 51),rgb(3, 3, 158)) !important;
+    color: #00ff00;
+
+}
+body.dark a, body.developers a{
+color: black;
+
+}       
+img#profileImg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    
+}
+
+
+
+
+
+
+
+
+</style>
+
+<script>
+       function setTheme(theme){
+    
+    document.body.className="";
+    document.body.classList.add(theme);
+    localStorage.setItem("theme",theme);
+    
+}
+
+
+  window.addEventListener("load",()=>{
+    const localTheme=localStorage.getItem("theme") || "light";
+    setTheme(localTheme);
+    
+    document.getElementById(localTheme).checked=true;
+    
+    
+});
+</script>
+
+</head>
+<body>
+    <header>
+        <nav>
+    <a href="index.html">Home</a>
+    <a href="BOOK.HTML">Book</a>
+    <a href="RENT.HTML">Pay</a>
+    <a href="HOUSE.HTML">House</a>
+    
+    
+    </nav>
+   
+   <button id="sign"><a href="LOGIN.HTML">Sign In </a></button>
+   <div class="profile" id="profile">
+    <a href="PROFILE.HTML"><img src="" alt="profile photo" id="profileImg" ></a>
+   </div>
+   
+   
+   </header>
+   
+   <div class="modal" id="mpesa-modal">
+    <div class="modal-window" >
+        <h2>mpesa Payment</h2>
+        <p>Enter Phone number to prompt payment.</p>
+        
+        <input id="telephone" type="tel" placeholder="+254712345678" minlength="10" maxlength="14">
+        <br>
+        <button id="prompt">Prompt</button>
+    
+    </div>
+    </div>
+    <div class="modal" id="pin-modal">
+    <div class="modal-window" >
+        <h2>mpesa Payment</h2>
+        <p>ENTER MPESA PIN</p>
+        <input type="password" name="pin" id="pin" placeholder="****" maxlength="4" minlength="4">
+    <br>
+        <button id="pay">Pay</button>
+    
+    </div>
+    </div>
+    <div class="modal" id="card-modal">
+    <div class="modal-window" >
+        <h2>BANK Payment</h2>
+        <p>Enter Card Number</p>
+        <input type="text" maxlength="20" placeholder="e.g 1234 4567 8901 2345 6789" minlength="16" id="cardNumber">
+    <br>
+        <button id="carding">Next</button>
+   </div>
+    </div>
+   <div class="modal" id="cvv-modal">
+    <div class="modal-window" >
+        <h2>BANK Payment</h2>
+        <p>Enter Card CVV</p>
+    <input type="password" name="cvv" id="cvv" placeholder="*****" minlength="3" maxlength="4">
+    <br>
+        <button id="confirm">Pay</button>
+    
+    </div>
+    </div>
+   
+   
+   
+    <form action="">
+        <h2>BOOK ROOM</h2>
+        <fieldset>
+            <fieldset>
+                <legend>NAME <SUP>*</SUP></legend>
+                <input type="text" name="name" id="name" placeholder="Enter your full name" >
+    
+            </fieldset>
+            <fieldset>
+            <legend>ID / PASSPORT <SUP>*</SUP></legend>
+            <input type="text" name="passport" id="passport" placeholder="Passport / ID number " >
+            
+            </fieldset>
+            <fieldset>
+                <legend>PHONE NUMBER <sup>*</sup></legend>
+                <input type="tel" aria-readonly="true" name="phone" id="phone" placeholder="Phone number" >
+                
+                </fieldset>
+                <fieldset>
+                <legend>HOUSE NUMBER <sup>*</sup></legend>
+                <input type="text" readonly  name="room" id="room" placeholder="House number" >
+                
+                
+                </fieldset>
+    
+                <fieldset>
+                <legend id="pay">DEPOSIT AMOUNT <SUP>*</SUP> <sub>ksh</sub></legend>
+                <input type="text" readonly  name="amount" id="amount" placeholder="Amount in KSH" >
+                
+                </fieldset>
+                <fieldset>
+                <label for="mode">PAYMENT MODE :</label><select name="mode" id="mode">
+                <option value=""></option>
+                <option value="mpesa">M-PESA</option>
+                <option value="card">CARD</option>
+                <option value=""></option>
+                
+                </select>
+                
+                </fieldset>
+                
+        </fieldset>
+        <button  id="post" onclick="hideRoom()">BOOK NOW</button>
+    
+    
+    
+    </form>  
+    
+   
+    
+    
+    
+    <script>
+  
+function generateCodes(length = 6) {
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    let code = "";
+    for (let i = 0; i < length; i++) {
+        code += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return code;
+}
+
+
+function saveCode() {
+    const code = generateCodes();
+    
+    localStorage.setItem("transactionCode", JSON.stringify(code));
+}
+
+
+function saveTransactionRecord(newRecord) {
+    const existing = JSON.parse(localStorage.getItem("transactions")) || [];
+    existing.push(newRecord);
+    localStorage.setItem("transactions", JSON.stringify(existing));
+}
+
+
+function updateHistory(amount, mode, TID, room) {
+    let historyArray = JSON.parse(localStorage.getItem("history")) || [];
+
+    const newTransaction = {
+        TID: TID,
+        amount: amount,
+        
+        DATE: new Date().toISOString(), 
+        mode: mode,
+        room: room
+    };
+
+    historyArray.push(newTransaction);
+    localStorage.setItem("history", JSON.stringify(historyArray));
+}
+
+
+
+saveCode();
+
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const d = new Date();
+let currentMonth = months[d.getMonth()];
+const date = d.getDate();
+const today = new Date(); 
+
+
+const roomNoInput = document.getElementById("room");
+const depositInput = document.getElementById("amount");
+
+const storedRoom = localStorage.getItem("room");
+const storedAmount = localStorage.getItem("amount");
+
+if (storedRoom) roomNoInput.value = JSON.parse(storedRoom);
+if (storedAmount) depositInput.value = JSON.parse(storedAmount);
+
+
+
+const next = document.getElementById("post");
+next.addEventListener("click", (e) => {
+    e.preventDefault();
+    
+    
+    const name = document.getElementById("name").value.trim();
+    const passport = document.getElementById("passport").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const room = document.getElementById("room").value.trim();
+    const amount = document.getElementById("amount").value.trim();
+    const mode = document.getElementById("mode").value.trim();
+    const telephone = document.getElementById("telephone").value.trim();
+    
+    
+    const promptButton = document.getElementById("prompt");
+    const payButton = document.getElementById("pay");
+    const cardingButton = document.getElementById("carding");
+    const confirmButton = document.getElementById("confirm");
+
+    
+    const transactionCode = JSON.parse(localStorage.getItem("transactionCode"));
+    const currentTID = "TOPG" + transactionCode;
+    
+    const log = localStorage.getItem("loggedInUser");
+
+    
+    if (!name || !passport || !phone || !room || !amount || !mode) {
+        alert("Please fill in all the required fields.");
+        return;
+    }
+
+    
+    localStorage.setItem("name", JSON.stringify(name));
+    localStorage.setItem("passport", JSON.stringify(passport));
+    localStorage.setItem("phone", JSON.stringify(phone));
+    localStorage.setItem("room", JSON.stringify(room));
+    
+    localStorage.setItem("amount", JSON.stringify(Number(amount))); 
+
+    if (log) {
+        
+        if (mode === "mpesa") {
+            const phoneModal = document.getElementById("mpesa-modal");
+            phoneModal.style.display = "block";
+            document.body.style.overflow = "hidden";
+            const currentMode = "mpesa";
+            
+            
+            promptButton.onclick = () => { 
+                const telInput = document.getElementById("telephone").value.trim(); 
+                
+                if (telInput.length >= 10 && telInput.length < 14) {
+                    const pinModal = document.getElementById("pin-modal");
+                    phoneModal.style.display = "none";
+                    pinModal.style.display = "block";
+
+                    payButton.onclick = (e) => { 
+                        e.preventDefault();
+                        const pin = document.getElementById("pin").value.trim();
+
+                        if (pin.length === 4) {
+                            alert(`Ksh ${amount} from your mpesa account will be used to book for room number ${room} by OPG REALTORS`);
+                            
+                            
+                            const fullTransactionDetails = `${date}${currentMonth}${room}${amount} ${currentMode}`;
+                            localStorage.setItem("transaction", JSON.stringify(fullTransactionDetails));
+                            localStorage.setItem("DateIn", today.toISOString());
+                            localStorage.setItem("payments", JSON.stringify(`Confirmed Paid KSH ${amount} to OPG House & Realtors for room ${room} month of ${currentMonth}.`));
+                            
+                            
+                            updateHistory(Number(amount), currentMode, currentTID, room); 
+                            
+                            
+                            pinModal.style.display = "none";
+                            alert(`You have successfully paid for your room. Room number ${room} for the month of ${currentMonth}.`);
+                            window.location.href = "PROFILE.HTML";
+                            
+                        } else {
+                            alert("PIN must be 4 digits long.");
+                        }
+                    };
+
+                } else {
+                    alert("Please check phone number again");
+                }
+            };
+            
+        
+        } else if (mode === "card") {
+            const cardModal = document.getElementById("card-modal");
+            cardModal.style.display = "block";
+            document.body.style.overflow = "hidden";
+            const currentMode = "card";
+
+            cardingButton.onclick = () => { 
+                const cardNumber = document.getElementById("cardNumber").value.trim();
+                
+                if (cardNumber.length >= 16 && cardNumber.length < 20) {
+                    const cvvmodal = document.getElementById("cvv-modal");
+                    cardModal.style.display = "none";
+                    cvvmodal.style.display = "block";
+
+                    confirmButton.onclick = () => {
+                        const cvv = document.getElementById("cvv").value.trim();
+                        
+                        if (cvv.length >= 3 && cvv.length <= 4) {
+                            
+                            
+                            
+                            
+                            const fullTransactionDetails = `${date}${currentMonth}${room}${amount} ${currentMode}`;
+                            localStorage.setItem("transaction", JSON.stringify(fullTransactionDetails));
+                            localStorage.setItem("DateIn", today.toISOString());
+                            localStorage.setItem("payments", JSON.stringify(`Confirmed Paid KSH ${amount} to OPG House & Realtors for room ${room} month of ${currentMonth}.`));
+
+                            
+                            updateHistory(Number(amount), currentMode, currentTID, room);
+                            
+                            
+                            alert(`You have successfully paid for house number ${room} for the month of ${currentMonth}.`);
+                            cvvmodal.style.display = "none";
+                            window.location.href = "PROFILE.HTML";
+                            
+                        } else {
+                            alert("CVV must be 3 to 4 digits long.");
+                        }
+                    };
+
+                } else {
+                    alert("Card number must be at least 16 characters long");
+                }
+            };
+
+        } else {
+            alert("Please select a valid payment mode (mpesa or card).");
+        }
+
+    } else {
+        alert("You cannot book a room if you have not logged in. Please log in first.");
+        window.location.href = "LOGIN.HTML";
+    }
+});
+
+
+
+const dp = document.getElementById("profile");
+const sign = document.querySelector("#sign");
+const logg = localStorage.getItem("loggedInUser");
+const pass1 = localStorage.getItem("password1");
+const pass = localStorage.getItem("password");
+
+function showDp() {
+    if (pass && pass1) {
+        dp.style.display = "block";
+        sign.style.display = "none";
+    } else {
+        dp.style.display = "none";
+        sign.style.display = "block";
+    }
+}
+
+window.onload = showDp;
+
+function hideRoom(roomNumber) {
+    const bookedRoomId = JSON.parse(localStorage.getItem("room"));
+    const houses = JSON.parse(localStorage.getItem("houses")) || [];
+
+    const roomIndex = houses.findIndex(r => r.room === bookedRoomId);
+
+    if (roomIndex !== -1) {
+        houses[roomIndex].booked = true;
+        localStorage.setItem("houses", JSON.stringify(houses));
+
+        let bookedRoom = JSON.parse(localStorage.getItem("bookedRoom")) || [];
+
+        if (!bookedRoom.includes(bookedRoomId)) {
+            bookedRoom.push(bookedRoomId);
+            localStorage.setItem("bookedRoom", JSON.stringify(bookedRoom));
+        }
+    }
+    
+   
+}
+    
+    function retrieveAndDisplayPhoto() {    
+    const savedPhotoDataURL = localStorage.getItem("myPhoto");        
+    const container = document.getElementById("profile");
+   
+    if (savedPhotoDataURL && container) {
+    
+    const link = document.createElement('a');
+    
+    link.href = "PROFILE.HTML"; 
+    
+    const img = document.createElement('img');
+    img.src = savedPhotoDataURL;
+    img.alt = "User Profile Picture";
+    img.className = 'profile-photo';     
+    link.appendChild(img); 
+    
+    container.innerHTML = '';         
+    container.appendChild(link); 
+    
+} else if (container) {
+    
+    container.innerHTML = '<a href="PROFILE.HTML">Profile Photo.</a>';
+}
+   
+}
+
+document.addEventListener('DOMContentLoaded', retrieveAndDisplayPhoto);
+    
+    
+    
+    </script>
+    
+</body>
+</html>   

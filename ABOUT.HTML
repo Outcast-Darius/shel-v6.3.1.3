@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>    
+ body{
+        background:linear-gradient(to right,#3a0101,#031bf5);    
+        padding: 0;    
+        margin: 0;
+        background-blend-mode: multiply;
+        align-items: center;
+        display: flex   ;
+        flex-direction: column;
+        min-height: 100vh;
+        margin-top: 0;
+        padding-top: 0;    
+        transition: all 0.8s ease-in-out;
+        background-image: ();
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+
+}   
+ header{
+    width: 100%;
+    background: linear-gradient(to left,#070733,#3b296d);
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    position: fixed;
+    z-index: 1000;
+
+}      
+  nav{
+        display: flex;
+        
+        align-items: center;
+        gap: 2rem;
+        margin-left: 35%;
+        width: 40%;
+        border-radius: 0.625rem;
+        background-color: white;
+        height: 2rem;
+        
+    
+
+    }   
+    nav a{
+        color: black;
+        text-decoration: none;
+        padding-left: 1em;
+        font-size: 1rem;
+
+    }
+     nav a:nth-child(1){
+        color: black;
+        text-decoration: none;
+        margin-left: 5em;
+        font-size: 1rem;
+
+    }
+    
+    
+    nav a:hover{
+        font-weight: bold;
+        transition: color 0.3s ease;
+        border-block-end: 2px solid black;        
+         
+
+    }      
+    #sign{
+    position: absolute;
+    right: 2rem;
+    margin-top: -1rem;
+    padding: 0.5rem 1rem;
+    background-color: #03b0f5;
+    color: white;
+    border: none;
+    border-radius: 0.925rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 5px #03b0f5;
+     right: 1rem;
+        top: 3.2rem;
+        padding: 0.2rem;
+    display: block;
+
+}
+.profile{
+    margin-left: 92%;
+    margin-top: -1.82rem;
+    margin-bottom: 1rem;
+    width: 2rem;    
+    height: 2rem;
+    overflow: hidden;
+    border-radius: 50%;
+
+
+
+}
+ @media (max-width: 768px) {
+        
+        nav a{
+            font-size: 0.9rem;
+            padding-left: 0.15rem
+        }
+    nav{
+        width: 75%;
+        margin-left: 10%;
+
+        }
+        
+        
+    } 
+body.dark{
+    background: #080808 !important;
+    color: white;
+
+}
+body.light{
+    background: #f0f0f0 !important;
+    color: black;
+
+}
+body.developers{
+    background: linear-gradient(to right,rgb(7, 7, 51),rgb(3, 3, 158)) !important;
+    color: #00ff00;
+
+}
+body.dark a, body.developers a{
+color: black;
+
+}
+img#profileImg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    
+}
+
+content{
+width: 400px;
+height: 200px;
+background: black;
+margin-top: 8em;
+clip-path: path("M0 0 H300 V200 H0 Z M100 50 H200 V150 H100 Z ");
+                   
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+
+<script>
+
+function setTheme(theme){
+    
+    document.body.className="";
+    document.body.classList.add(theme);
+    localStorage.setItem("theme",theme);
+    
+}
+
+
+  window.addEventListener("load",()=>{
+    const localTheme=localStorage.getItem("theme") || "light";
+    setTheme(localTheme);
+    
+    document.getElementById(localTheme).checked=true;
+    
+    
+});</script>
+
+
+
+</head>
+<body>
+      <header>
+        <nav>
+    <a href="index.html">Home</a>    
+    <a href="RENT.HTML">Pay</a>
+    <a href="HOUSE.HTML">House</a>
+    <a href="ABOUT.HTML">About Us</a>
+    
+    </nav>
+    
+    <button id="sign"><a href="LOGIN.HTML">Sign In </a></button>
+    
+    <div class="profile" id="profile">
+    <a href="PROFILE.HTML"><img src="" alt="profile photo" id="profileImg" ></a>
+   </div>
+        
+        
+        
+        
+        </header> 
+    
+    
+   
+    
+    
+    
+    
+    
+    
+    
+    </div>
+    
+    
+    
+    
+    
+    <script>
+      const dp = document.getElementById("profile");
+    const sign = document.querySelector("#sign");
+
+    const logg = localStorage.getItem("loggedInUser");
+    const pass1 = localStorage.getItem("password1");
+    const pass = localStorage.getItem("password");
+
+    function showDp() {
+    if (pass && pass1) {
+        dp.style.display = "block";
+        sign.style.display = "none";
+    } else {
+        dp.style.display = "none";
+        sign.style.display = "block";
+      }
+    }
+
+    window.onload = showDp;
+    
+    function retrieveAndDisplayPhoto() {    
+    const savedPhotoDataURL = localStorage.getItem("myPhoto");        
+    const container = document.getElementById("profile");
+    
+ if (savedPhotoDataURL && container) {
+    
+    const link = document.createElement('a');
+    
+    link.href = "PROFILE.HTML"; 
+    
+    const img = document.createElement('img');
+    img.src = savedPhotoDataURL;
+    img.alt = "User Profile Picture";
+    img.className = 'profile-photo';     
+    link.appendChild(img); 
+    
+    container.innerHTML = '';         
+    container.appendChild(link); 
+    
+} else if (container) {
+    
+    container.innerHTML = '<a href="PROFILE.HTML">Profile Photo.</a>';
+}
+}
+
+document.addEventListener('DOMContentLoaded', retrieveAndDisplayPhoto);
+    
+    
+    
+    
+    </script>
+    
+    
+    
+</body>
+</html>

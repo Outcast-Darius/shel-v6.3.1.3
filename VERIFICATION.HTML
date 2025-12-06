@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>verification</title>
+
+<style>
+*{
+
+padding: 0;
+margin: 0;
+outline: none;
+
+}
+header{
+position: fixed;
+z-index: 50;
+background: rgba(0,0,0,0.8);
+height: 5em;
+width: 100%;
+box-shadow: 0 3px 0px black;
+margin-bottom: 1em;
+
+}
+body{
+padding: 0;
+margin: 0;
+height: 100vh;
+box-sizing: border-box;
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+align-items: center;
+transition: all .8s ease-in-out;
+
+}
+form{
+box-sizing: border-box;
+box-shadow: 0 0 10px black;
+margin-top: 5.5em;
+padding: 1em;
+background: white;
+width: 40%;
+height: 60vh;
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+border-radius: 0.625em;
+z-index: 30;
+background: linear-gradient(45deg,blue,rgb(0, 255, 242),blue);
+transition: all;
+
+}
+fieldset{
+border: none;
+width: 100%;
+padding: 1em;
+
+}
+#verify{
+padding: 0.625em 1em 0.625em 1em;
+border-radius: 1.5em;
+background: linear-gradient(to left,white, rgb(4, 250, 4));
+box-shadow: 0 0 10px;
+border: none;
+margin-top: 2em;
+float: right;
+width: 4em;
+margin-left: 85%;
+z-index: 20;
+
+}
+#verify:hover{
+box-shadow: 0 2px 2px rgb(1, 250, 1);
+background: linear-gradient(to right,white,rgb(3, 247, 3));
+transition: .5s;
+padding: 0.625em 1.2em 0.825em 1.2em;
+margin-left: 83.5%;
+
+}
+
+
+
+footer{
+box-shadow: 0 -5px 0 black, 0 -5px 0 white;
+min-height: 5em;
+text-align: center;
+width: 100%;
+margin-bottom: 0;    
+padding-bottom: 0;
+margin-top: 4em;
+
+}
+.digit{
+width: 90%;
+height: 2.5em;
+letter-spacing: 0.525em;
+text-align: center;
+font-size: 1em;
+font-weight: 700;
+font-family:'Times New Roman', Times, serif; 
+text-transform: uppercase;
+outline: none;
+border-radius: 1em;
+border: 1px solid black;
+
+
+}
+body.dark{
+    background-color: #080808 !important;
+    color: white;
+
+}
+body.light{
+    background: linear-gradient(#f0f0f0,#f0f0f0)!important;
+    color: black;
+
+}
+body.developers{
+    background: linear-gradient(to right,#070733,#3b296d) !important;
+    color: #00ff00;
+
+}
+body.dark a, body.developers a{
+color: white;
+
+}
+#back{
+padding-top: -2em;
+color: white;
+color: auto;
+text-shadow: 1px 1px 1px black,1px 1px 1px white;
+z-index: -15;
+
+}
+#back:hover{
+color: #00ff00;
+transition: .5s;
+font-size: large;
+
+}
+h3{
+    color: orangered;
+    text-align: center;
+    margin-bottom: 2em;
+
+}
+
+
+
+
+
+
+
+
+@media(max-width:768px){
+    form{
+        width: 60%;
+        height: 60vh;
+
+    }
+    #verify{
+        height: 2em;
+        text-align: center;
+        float: right;        
+        margin-left: 70%;        
+        margin-bottom: -2.55em;
+        margin-top: 3.5em;
+
+    }
+    #verify:hover{
+        margin-left: 68%;
+
+
+    }
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+</style>
+
+<script>
+function setTheme(theme){
+    
+    document.body.className="";
+    document.body.classList.add(theme);
+    localStorage.setItem("theme",theme);
+    
+}
+
+
+  window.addEventListener("load",()=>{
+    const localTheme=localStorage.getItem("theme") || "light";
+    setTheme(localTheme);
+    
+    document.getElementById(localTheme).checked=true;
+    
+    
+});</script>
+
+
+
+</head>
+<body>
+    <header>
+    
+    <h3>OPG</h3>
+    
+    </header>
+    
+    <form action="">
+    <h3>VERIFICATION</h3>
+    <P>Enter 6 digit Code Sent To You.</P>
+    <fieldset>
+    <input type="text" class="digit" name="code" id="1" maxlength="6">
+ 
+    </fieldset>
+    
+    
+    
+    <button id="verify" onclick="verification()">Verify</button><br>
+    
+    <a id="back" href="FORGOT.HTML">Back</a>
+    
+    </form>
+    
+    <footer>
+    
+         <div class="developer">
+        <h4>Developed by</h4>
+        
+    <p id="user">Outcast DHO</p>
+    </div>
+    
+    <p id="copy"> OPG House and Real estates &reg; </p>
+   <p id="rights"> All Rights Reserved &copy;2025</p>   
+    
+
+    </footer>
+    
+    
+    <script>
+    
+    const inputs=document.querySelectorAll(".digit");
+        inputs.forEach((input,idx)=>{
+            input.addEventListener("input",()=>{
+                if(input.value.length===1 && idx<inputs.lenght-1){
+                    inputs(idx+1).focus();
+                }
+            });
+        });
+    
+    function verification(){
+        const code=document.getElementById("1").value.trim();
+        const saveCode=JSON.parse(localStorage.getItem("code"));
+    
+    if(code){
+        if(code===saveCode){
+           
+            window.location.href="CHANGE.HTML";
+        
+         alert("Verification Done Sucessfully.");    
+    
+    localStorage.removeItem("code");
+    
+        }
+    else{
+    alert("Invalid Code check Code again.");
+    return;
+    
+    }
+    }
+    else{
+    alert("Please enter the CODES");
+    return ;
+    
+    }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </script>
+    
+    
+</body>
+</html>

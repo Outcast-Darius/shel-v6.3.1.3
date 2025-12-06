@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rent payment</title>
+<style>
+    
+   body{
+            
+        padding: 0;    
+        margin: 0;
+        background-blend-mode: multiply;
+        align-items: center;
+        display: flex   ;
+        flex-direction: column;
+        height: 100vh;
+        margin-top: 0;
+        padding-top: 0;    
+        transition: all 0.8s ease-in-out;
+        background-image: ();
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;        
+        background:linear-gradient(to right,#020224,#4c23bb);
+
+        }
+        form {
+            box-sizing: border-box;
+            border-radius: 10px;
+            width: 40%;
+            background:linear-gradient(to left,#0f0f50,#564979);
+            padding: 1rem;
+            align-items: center;
+            box-sizing: 0 0 15px;
+            animation: glow 2s infinite alternate;
+            transition: all 0.8s ease-in-out;
+            backdrop-filter: blur(40px);    
+            margin-top: 12em;
+
+        }
+        h2{
+            text-align: center;
+            color: linear-gradient(to right, #c92b7a, #f80303);
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 1.2rem;
+        
+        
+        }
+        fieldset{
+            border: none;
+            margin-bottom: 0;
+            padding: 0;
+        
+        
+        }
+        input{
+            width: 90%;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            outline: none;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size: 1rem;
+            height: 2.8em;
+        
+        }
+        select{
+            width: 50%;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            font-size: 1rem;
+            outline: none;
+        
+        }
+        header{
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(to left,#28273d,#0f1720);           box-sizing: border-box;
+            margin-bottom: 2rem;            
+            margin-top: 0;
+            position: fixed;
+            height: 20%;
+            border: none;
+            background-blend-mode: multiply;
+            z-index: 1000;
+        
+        }
+        nav a{
+            color: #000;
+            text-decoration: none;
+            margin: 1rem;
+            font-size: 1rem;
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            padding: 0rem 3rem;
+        
+        }
+        nav a:hover{
+            text-decoration: underline;
+        
+        
+        }        
+       nav{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: white;
+            border-radius: 0.625rem;
+            width: 50%;
+            margin-left: 25%;            
+            
+
+        }
+        #back{
+            padding: 0.5rem ;
+            margin: 0.5rem;
+            border: none;
+            border-radius: 8px;
+            background-color: #7226FF;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 4px ;
+            
+            
+        
+        }
+        #back:hover{
+            background-color: #010030;
+        
+        
+        }        
+        sup{
+            color: red;
+        
+        
+        }
+        #next{
+            padding: 0.625em 1em ;
+            margin: 0.5rem;
+            border: none;
+            border-radius: 1em;
+            background: linear-gradient(300deg,white,blue);
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 4px ;
+            float: right;
+            
+        
+        }
+        #next:hover{
+            background:linear-gradient(to left,blue,white);
+            transition:.5s ease-in-out;
+            padding: 0.625em 1.25em;
+            box-shadow: 0 0 10px black;
+            
+        
+        }
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 5px #60643f, 0 0 15px #3b5320, 0 0 30px #05c6f7;
+            }
+            to {
+                box-shadow: 0 0 20px #362438, 0 0 40px #5e385a, 0 0 60px #da03ee;
+            }
+        }
+        @media (max-width: 768px) {
+            form {
+                width: 80%;
+            }
+            nav {
+                width: 80%;
+                padding:0;
+                margin-left: 8.5%;
+                height: 2.5rem;
+                margin-top: 1rem;
+            
+            }
+            nav a {
+                font-size: 0.9rem;
+                
+                padding: 0.5rem 1rem;
+            
+            }
+             #sign{
+    margin-left: 85%;
+    font-size: 10px;
+     margin-top: -1rem;       
+
+}
+            
+            
+        }
+        
+     #sign{
+    position: absolute;
+    right: 2rem;
+    top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #03b0f5;
+    color: white;
+    border: none;
+    border-radius: 0.925rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 5px #03b0f5;
+     right: 1rem;
+        top: 3.2rem;
+        padding: 0.2rem;
+        
+
+}   
+    
+.profile{
+    margin-left: 92%;
+    margin-top: -1.82rem;
+    margin-bottom: 1rem;
+    width: 2rem;    
+    height: 2rem;
+    overflow: hidden;
+    border-radius: 50%;
+
+
+
+}
+image{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%; 
+    object-fit: cover;
+    overflow: hidden;
+
+}    
+  #sign a{
+    text-decoration: none;
+    color:white;
+
+}      
+ .modal{       
+        display: none;
+        width: 100%;
+        min-height: 100vh;
+        background-color: rgba(10, 4, 32, 0.9);
+        justify-content: center;
+        overflow: hidden;
+        z-index: 1500;        
+        text-align: center;
+        position: relative;    
+
+ }
+  .modal-window{       
+        display: block;
+        width: 60%;
+        height: 40%;
+        background-color: rgba(253, 252, 252,0.9 );
+        justify-content: center;
+        z-index: 1100;
+        float: left;
+        margin-left: 20%;      
+        border-radius: 0.625em;        
+        box-shadow: 0 0 15px ;
+        margin-top: 25%;        
+        color: black;
+        
+
+ }      
+  .modal>input{
+        width: 90%;
+        
+  }
+  .modal-window button{      
+        border: none;
+        border-radius: 0.925em;
+        padding: 0.5em 0.6em;
+        background: linear-gradient(45deg, white,orangered );
+        box-shadow: 0 0 10px;
+        margin-top: 2em;
+        font-weight: 700;
+        margin-bottom: 1em;
+        
+  }
+ .modal-window button:hover{       
+    background: linear-gradient(to top,orangered,white);      
+    transition: all .6s ease-in-out;    
+    padding: 0.5em 0.925em;    
+    font-size: 16px;    
+    border-radius: 1em;    
+    box-shadow: 0 2px 5px rgb(3, 243, 3);    
+    color: rgb(2, 252, 14);    
+    font-weight: 700;    
+    text-shadow: 0 1px 1px black ;    
+        
+ }
+body.dark{
+    background: #1a1919 !important;
+    color: white;
+
+}
+body.light{
+    background: #f0f0f0 !important;
+    color: black;
+
+}
+body.developers{
+    background: linear-gradient(to right,rgb(7, 7, 51),rgb(3, 3, 158)) !important;
+    color: #00ff00;
+
+}
+body.dark a, body.developers a{
+color: black;
+
+}               
+body form.dark{
+background:#000 !important;
+
+
+}        
+body form.light{        
+        background: #f0f0f0 !important;
+        
+               
+}
+body form.developers{       
+background:linear-gradient(to left,#0f0f50,#564979)!;
+
+
+ }
+img#profileImg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+    </style>
+
+<script>
+       function setTheme(theme){
+    
+    document.body.className="";
+    document.body.classList.add(theme);
+    localStorage.setItem("theme",theme);
+    
+}
+
+
+  window.addEventListener("load",()=>{
+    const localTheme=localStorage.getItem("theme") || "light";
+    setTheme(localTheme);
+    
+    document.getElementById(localTheme).checked=true;
+    
+    
+});
+</script>
+
+
+</head>
+<body>
+    <header>
+    <nav>
+    <a href="index.html">Home</a>    
+    <a href="RENT.HTML">Pay</a>
+    <a href="HOUSE.HTML">House</a>
+    <a href="ABOUT.HTML">About </a>
+    
+    </nav>
+    
+    <button id="sign"><a href="LOGIN.HTML">Sign In </a></button>
+    
+    <div class="profile" id="profile">
+    <a href="PROFILE.HTML"><img src="" alt="profile photo" id="profileImg" ></a>
+   </div>
+    
+    </header>
+    
+    <div class="modal" id="mpesa-modal">
+    <div class="modal-window" >
+        <h2>mpesa Payment</h2>
+        <p>Enter Phone number to prompt payment.</p>
+        
+        <input id="phone" type="tel" placeholder="+254712345678" minlength="10" maxlength="14">
+        <br>
+        <button id="prompt">Prompt</button>
+    
+    </div>
+    </div>
+    <div class="modal" id="pin-modal">
+    <div class="modal-window" >
+        <h2>mpesa Payment</h2>
+        <p>ENTER MPESA PIN</p>
+        <input type="password" name="pin" id="pin" placeholder="****" maxlength="4" minlength="4">
+    <br>
+        <button id="pay">Pay</button>
+    
+    </div>
+    </div>
+    <div class="modal" id="card-modal">
+    <div class="modal-window" >
+        <h2>BANK Payment</h2>
+        <p>Enter Card Number</p>
+        <input type="text" maxlength="20" placeholder="e.g 1234 4567 8901 2345 6789" minlength="16" id="cardNumber">
+    <br>
+        <button id="carding">Next</button>
+        
+    
+    </div>
+    </div>
+    <div class="modal" id="cvv-modal">
+    <div class="modal-window" >
+        <h2>BANK Payment</h2>
+        <p>Enter Card CVV</p>
+    <input type="password" name="cvv" id="cvv" placeholder="*****" minlength="3" maxlength="4">
+    <br>
+        <button id="confirm">Pay</button>
+    
+    </div>
+    </div>
+    
+    <form action="">
+    <h2>MONTHLY RENT PAYMENT</h2>
+    <fieldset>
+    <fieldset>
+    <legend>ROOM NUMBER <sup>*</sup></legend>
+    <input type="text" readonly name="room" id="door" placeholder="Room Number">
+            
+    </fieldset>
+    <fieldset>
+    <legend>FLOOR NUMBER <sup>*</sup></legend>
+    <input type="text" readonly name="floor" id="floor" placeholder="Floor Number">
+    
+    </fieldset>
+    <fieldset>
+    <legend>AMOUNT <sup>*</sup></legend>
+    <input type="currency" readonly name="amount" id="amount" placeholder="Amount in KSH">
+    
+    </fieldset>
+    <fieldset>
+    <label for="mode">PAYMENT MODE :</label><select name="mode" id="mode" >
+    <option value=""></option>
+    <option name="mode" value="mpesa">MPESA</option>
+    <option name="mode" value="card">DEBIT / CREDIT CARD</option>
+    <option value=""></option>
+    </select>
+    
+    </fieldset>
+    </fieldset>
+    
+    <button id="next">Next</button>
+    
+    
+    
+    </form>
+    
+    <script>
+ 
+        
+     const dp = document.getElementById("profile");
+     const sign = document.querySelector("#sign");
+
+     const logg = localStorage.getItem("loggedInUser");
+     const pass1 = localStorage.getItem("password1");
+     const pass = localStorage.getItem("password");
+
+    function showDp() {
+    if (pass && pass1) {
+        dp.style.display = "block";
+        sign.style.display = "none";
+    } else {
+        dp.style.display = "none";
+        sign.style.display = "block";
+     }
+    }
+
+window.onload = showDp;
+
+ const roomNo=document.getElementById("door");    
+ const floorNo=document.getElementById("floor");    
+ const deposit=document.getElementById("amount");   
+    
+ const room=localStorage.getItem("room");   
+ const amount=localStorage.getItem("amount");   
+ const floor=localStorage.getItem("floor");   
+    
+    const roomNumber=JSON.parse(room);
+    const floorNumber=JSON.parse(floor);
+    const depositAmount=JSON.parse(amount);
+    
+    roomNo.value=roomNumber;
+    deposit.value=depositAmount;   
+    floorNo.value=floorNumber;   
+
+
+function generateCodes(length = 6) {
+    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    let code = "";
+    for (let i = 0; i < length; i++) {
+        code += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return code;
+}
+
+function saveCode() {
+    const code = generateCodes();
+    localStorage.setItem("codde", JSON.stringify(code));
+}
+saveCode();
+
+
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+const d = new Date();
+let month = months[d.getMonth()];
+
+
+function updateHistory(transactionAmount, transactionMode, transactionID, roomNumber, monthName) {
+    
+    let h = JSON.parse(localStorage.getItem("history")) || [];
+
+    
+    const newTransaction = {
+        TID: transactionID,
+        amount: transactionAmount,
+        DATE: new Date().toISOString(), 
+        mode: transactionMode,
+        summary: `Confirmed Paid KSH ${transactionAmount} to OPG House & Realtors for room ${roomNumber} month of ${monthName}.`
+    };
+
+    
+    h.push(newTransaction);
+    localStorage.setItem("history", JSON.stringify(h));
+}
+
+
+const makePayment = document.getElementById("next");
+
+
+makePayment.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    
+    const amountInput = document.getElementById("amount");
+    const modeInput = document.getElementById("mode");
+    
+    
+    const currentAmount = amountInput ? amountInput.value.trim() : "0";
+    const currentMode = modeInput ? modeInput.value.trim() : "";
+    
+    
+    const codes = JSON.parse(localStorage.getItem("codde"));
+    const currentTID = "TOPG" + codes;
+
+    
+    const prompt = document.getElementById("prompt");
+    const confirmP = document.getElementById("confirm");
+    const carrd = document.getElementById("carding");
+    const pay = document.getElementById("pay");
+
+    
+    if (currentMode === "mpesa") {
+        const phoneModal = document.getElementById("mpesa-modal");
+        phoneModal.style.display = "block";
+        document.body.style.overflow = "hidden";
+
+        prompt.addEventListener("click", () => {
+            const phone = document.getElementById("phone").value.trim();
+
+            if (phone.length >= 10 && phone.length < 14) {
+                const pinModal = document.getElementById("pin-modal");
+                phoneModal.style.display = "none";
+                pinModal.style.display = "block";
+
+                pay.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    const pin = document.getElementById("pin").value.trim();
+
+                    if (pin.length === 4) {
+                        alert("ksh " + currentAmount + " from your mpesa account will be transfered to OPG REALTORS");
+
+                        
+                        updateHistory(currentAmount, "mpesa", currentTID, room, month);
+                        localStorage.setItem("payments", JSON.stringify(`Confirmed Paid KSH ${currentAmount} to OPG House & Realtors for room ${room} month of ${month}.`));
+
+                        alert(`You have succesfully paid for your room. Room number ${room} for the month of ${month}.`);
+                        pinModal.style.display = "none";
+                        document.body.style.overflow = "";
+                        window.location.href = "PROFILE.HTML";
+
+
+                    } else {
+                        alert("PIN must be exactly 4 digits long.");
+                        return;
+                    }
+                });
+            } else {
+                alert("Please check phone number again");
+                return;
+            }
+        });
+    }
+
+    
+    else if (currentMode === "card") {
+        const card = document.getElementById("card-modal");
+        card.style.display = "block";
+        document.body.style.overflow = "hidden";
+
+        carrd.addEventListener("click", () => {
+            const cardNumber = document.getElementById("cardNumber").value.trim();
+            if (cardNumber.length >= 16 && cardNumber.length < 20) {
+                const cvvmodal = document.getElementById("cvv-modal");
+                card.style.display = "none";
+                cvvmodal.style.display = "block";
+
+                confirmP.addEventListener("click", () => {
+                    const cvv = document.getElementById("cvv").value.trim();
+                    if (cvv.length >= 3 && cvv.length <= 4) {
+
+                        
+                        updateHistory(currentAmount, "card", currentTID, room, month);
+                        localStorage.setItem("payments", JSON.stringify(`Confirmed Paid KSH ${currentAmount} to OPG House & Realtors for room ${room} month of ${month}.`));
+
+                        alert(`You have succesfully paid for house number ${room} for the month of ${month}.`);
+                        cvvmodal.style.display = "none";
+                        document.body.style.overflow = "";
+                        window.location.href = "PROFILE.HTML";
+
+                    } else {
+                        alert("CVV must be 3 to 4 digits long.");
+                        return;
+                    }
+                });
+            } else {
+                alert("Card number must be atleast 16 characters long");
+                return;
+            }
+        });
+    }
+
+    else {
+        alert("You have not selected mode of payment");
+        return;
+    }
+});
+ 
+  function retrieveAndDisplayPhoto() {    
+    const savedPhotoDataURL = localStorage.getItem("myPhoto");        
+    const container = document.getElementById("profile");
+    
+    if (savedPhotoDataURL && container) {
+    
+    const link = document.createElement('a');
+    
+    link.href = "PROFILE.HTML"; 
+    
+    const img = document.createElement('img');
+    img.src = savedPhotoDataURL;
+    img.alt = "User Profile Picture";
+    img.className = 'profile-photo';     
+    link.appendChild(img); 
+    
+    container.innerHTML = '';         
+    container.appendChild(link); 
+    
+} else if (container) {
+    
+    container.innerHTML = '<a href="PROFILE.HTML">Profile Photo.</a>';
+}
+}
+
+document.addEventListener('DOMContentLoaded', retrieveAndDisplayPhoto);
+ 
+     
+    </script>
+</body>
+</html>

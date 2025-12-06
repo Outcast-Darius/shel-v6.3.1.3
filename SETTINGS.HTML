@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>settings</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" >
+
+
+
+<style>
+*{
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+
+}
+body{
+    padding: 0;
+    margin: 0;
+    transition: all 0.8s ease-in-out;
+    flex-wrap:wrap;    
+    
+}   
+ main{   
+    padding-top: 5em;
+
+
+}
+main::after{
+content: "";
+display: block;
+clear: both;
+
+
+}
+main>div{
+float: left;
+height: 70vh;
+padding: 1em;
+margin-bottom: 5em;
+
+
+}
+.aside{
+width: 12%;
+box-shadow: 0 0 15px;
+margin: 0.425rem;
+border-radius: 0.625em;
+background-color: transparent;
+backdrop-filter: blur(40px);
+text-align: start;
+padding: 1em;
+
+}
+.main{
+width: 50%;
+margin: 0.425rem;
+
+}
+.side-menu{
+width: 30%;
+box-shadow: 0 0 15px;
+margin: 0.425rem;
+border-radius: 0.625em;
+background-color: transparent;
+backdrop-filter: blur(40px);
+line-height: 2em;
+
+
+}
+.profile, .account{
+    box-shadow: 0 0 15px;
+    margin-bottom: 1em;
+    padding: 1em;
+    border-radius: 0.625em;
+    background-color: transparent;
+    backdrop-filter: blur(40px);
+    text-align: center;
+
+}
+.profile{
+    height: 40vh;
+    margin-top: -1em;
+    line-height: 3em;
+
+}
+.account{
+height: 27vh ;
+line-height: 2em;
+
+}
+
+header{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1em;
+    box-shadow: 0 0 10px rgba(0 ,0 ,0 ,0.9),0 0 10px white;
+    height: 2em;
+    font-size: 30px;
+    z-index: 1000;
+    position: fixed;
+    background-color: black;
+    opacity: 0.5;
+    color:white;
+
+}
+.aside li,.profile li,.account li{
+    list-style: none;
+
+
+}
+.aside a,.profile a,.account a{
+    text-decoration: none;
+    color: black;
+
+
+}
+.aside li{
+    padding: 0.625em 0 0.625em 0;
+    border-block-start: 1px solid gray;
+    border-block-end: 1px solid black;
+
+
+}
+.aside li:hover{
+    padding: 0.625em 0 0.625em 0.6em ;
+    transition: .6s ease-in-out;
+
+
+
+}
+h3,h4{
+color: rgb(167, 31, 31);
+
+}
+.account #logout{
+background: linear-gradient(to top, white, #78000a);
+border: none;
+border-radius: 1em;
+padding: 0.625em 1.25em;
+box-shadow: 0 2px 7px;
+margin-top: 1em;
+
+
+}
+#logout:hover{
+    background: linear-gradient(to top, orangered, white);
+    cursor: pointer;
+    transition: .7s ease;
+    box-shadow: 0 4px 10px;
+    z-index: 100;
+
+
+}
+body.dark{
+    background-color: #080808;
+    color: white;
+
+}
+body.light{
+    background-color: #f0f0f0;
+    color: black;
+
+}
+body.developers{
+    background: linear-gradient(to right,rgb(7, 7, 51),rgb(3, 3, 158));
+    color: #00ff00;
+
+}
+body.dark a, body.developers a{
+color: white;
+
+}
+ footer{
+    width: 100%;
+    text-align: center;
+    margin-top: 2em;
+    box-shadow: 0 0 10px rgba(0 ,0 ,0 ,0.6), 0 0 10px white;
+    padding: 1em 0 1em 0;
+    background-color: transparent;
+    backdrop-filter: blur(40px);
+    position: absolute;    
+    
+    margin-bottom: 0;
+    
+ }
+.footer a{
+text-decoration: none;
+
+
+
+}
+.contact::after{
+content: "";
+clear: both;
+display: block;
+box-sizing: border-box;
+
+}
+.contact>div{
+float: left;
+height: 45vh;
+margin-left: 1em;
+margin-top: 2em;
+
+}
+.social,.calls,.chats{
+width: 30%;
+box-shadow: 0 0 15px #000000,0 0 15px white;
+z-index: 30;
+padding: 1.5em;
+line-height: 2em;
+
+}
+a{   
+text-decoration: none;
+color: black;
+
+}
+i{
+    font-size: 1.5em;
+    padding-right: 0.625em;
+}
+i:hover{
+    padding-left: 0.6em;
+    transition: .5s ease-in-out;
+
+}
+.contact li{
+    list-style: none;
+    
+}
+.contact li:hover{
+    background-color: rgb(224, 215, 215);
+    border-radius: 0.625em;
+    color: black;
+
+}
+.social:hover, .calls:hover, .chats:hover{
+    box-shadow: 0 0 20px #0206fa,0 0 20px white;
+    transition: .5s ease-in-out;
+    border-radius: 0.625em;
+
+}
+.contact h3{
+    text-align: center;
+    margin-bottom: 1em;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 768px){
+    main{
+        display: block;      
+        height: auto;
+        column-count: 2;
+        display: flex;
+        flex-wrap: wrap;
+    
+    
+    }
+    .aside{
+        width: 30%;
+        margin-bottom: 0;
+        height: auto;
+        
+    }
+    .main{
+        width: 60%;
+        height: auto;
+        margin-bottom: 0;
+    
+    }
+    .side-menu{    
+    width: 100%;
+    height: auto;
+    margin-bottom: 2em;
+    
+    }
+    #logout{
+        width: 70%;
+
+    }
+    .contact{
+        column-count: 1;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;        
+        display: grid;
+        height: auto;        
+
+    }
+    .social, .calls, .chats{
+        width: 20em;
+        height: auto;
+
+
+    }
+
+
+
+}
+
+
+</style>
+</head>
+<body>
+<header>Settings</header>
+    <main>
+    <div class="aside">
+        <h4>MENU &#9776;</h4>
+        <ul>
+            <li><i class="fas fa-home"></i><a href="index.html">Home</a></li>
+            <li><i class="fas fa-school"></i><a href="HOUSE.HTML">Houses</a></li>
+            <li><i class="fas fa-info"></i><a href="ABOUT.HTML">About us</a></li>
+            <li><i class="fas fa-book"></i><a href="REPORTS.HTML">Reports</a></li>
+            <li><i class="far fa-user"></i><a href="PROFILE.HTML">Profile</a></li>
+
+        </ul>
+
+    </div>
+    
+        
+        <div class="main">
+            <div class="profile">
+                <h3><i class="far fa-user"></i>Profile </h3>                
+                <ul>
+                    <!--<li><a href="#">Username</a></li>-->
+                    <li><a href="PROFILE-PIC.HTML">Profile Photo</a></li>
+                    <li><a href="PROFILE-CHANGE.HTML">Edit Profile</a></li>
+                    
+                </ul>                    
+
+            </div>    
+            <div class="account">
+                <h3>Account</h3>
+                <ul>
+                    <li><a href="RESET.HTML">Change Password</a></li>
+                    <li><a href="#">Notifications</a></li></ul>
+                    <button id="logout">Log Out</button>
+                
+            </div>
+          </div>      
+        <div class="side-menu">
+          <h3>Theme</h3>
+            <input type="radio" name="theme" id="dark" value="dark" onchange="setTheme(this.value)">Dark Theme<br>
+            <input type="radio" name="theme" id="light" value="light" onchange="setTheme(this.value)">Light Theme<br>
+            
+            <input type="radio" name="theme" id="developers" value="developers" onchange="setTheme(this.value)">Developers Theme
+            
+
+        </div>
+            
+
+
+
+    
+    </main>
+    <div class="contact">      
+          <div class="social">
+          
+          <h3>Connect With us</h3> 
+                <li><i class="fab fa-facebook"></i><a href="https://www.facebook.com/Outcast DHO" target="_blank">facebook</a><br></li>
+                <li><i class="fab fa-youtube"></i><a href="https://www.youtube.com/Outcast " target="_blank">Youtube</a><br></li>
+                <li><i class="fab fa-twitter"></i><a href="https://www.twitter.com/Outcast DHO" target="_blank">X</a><br></li>
+                <li><i class="fab fa-pinterest"></i><a href="https://www.pinterest.com/Outcast DHO" target="_blank">Pinterest</a></li>
+                <li><i class="fab fa-github"></i><a href="https://github.com/Outcast-DHO" target="_blank">GitHub</a></li>
+                <li><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/Darius Opagala" target="_blank">LinkedIn</a></li>
+                      
+          </div>
+          <div class="calls">
+            <h3>Call US</h3>
+            
+            
+                <li><i class="fas fa-phone"></i><a href="tel:+254793636325" >Call</a><br></li>
+                
+                <li><i class="fas fa-fax"></i><a href="fax:+254793636325" >Fax</a><br></li>
+                    
+            </div>
+            <div class="chats">
+                
+                <h3>Chat Us</h3>
+                
+                <li><i class="fab fa-whatsapp"></i><a href="https://wa.me/254793636325" target="_blank">Whatsapp</a><br></li>
+                <li><i class="fab fa-telegram"></i><a href="https://t.me/outcast dho" target="_blank">Telegram</a><br></li>
+                
+                <li><i class="fab fa-skype"></i><a href="skype:live:outcastdho ?chat">Skype</a></li>
+                
+
+                
+
+            </div>
+    </div>   
+
+<footer>
+    <div class="developer">
+        <h4>Developed by</h4>
+        
+    <p id="user">Outcast DHO</p>
+    </div>
+    
+    <p id="copy"> OPG House and Real estates &reg; </p>
+   <p id="rights"> All Rights Reserved &copy;2025</p>   
+    
+    
+    </footer>          
+
+
+<script>
+
+function setTheme(theme){
+    
+    document.body.className="";
+    document.body.classList.add(theme);
+    localStorage.setItem("theme",theme);
+    
+}
+
+window.addEventListener("load",()=>{
+    const localTheme=localStorage.getItem("theme") || "light";
+    setTheme(localTheme);
+    
+    document.getElementById(localTheme).checked=true;
+    
+    
+});
+
+
+const logout=document.getElementById("logout");
+logout.addEventListener("click",()=>{
+     
+    localStorage.removeItem("password"); 
+    localStorage.removeItem("email");
+    localStorage.removeItem("loggedInUser");
+    localStorage.removeItem("username");
+    localStorage.removeItem("room");
+
+    alert("You have been logged out of OPG.");
+
+});
+
+
+
+</script>    
+</body>
+</html>

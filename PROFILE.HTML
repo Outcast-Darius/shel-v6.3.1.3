@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>profile/account center</title>
+<style>
+*{
+box-sizing: border-box;
+padding: 0;
+margin: 0;
+outline:none;
+
+
+}
+body{
+        background:linear-gradient(to right,#020224,#4c23bb);    
+        padding: 0;    
+        margin: 0;
+        background-blend-mode: multiply;
+        align-items: center;
+        display: flex   ;
+        flex-direction: column;
+        min-height: 100vh;
+        margin-top: 0;
+        padding-top: 0;    
+        transition: all 0.8s ease-in-out;
+        background-image: ();
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding-bottom: 2rem;
+        background-color: "";
+        
+
+}
+form {
+    box-sizing: border-box;
+    border-radius: 10px;
+    width: 35%;
+    background:linear-gradient(to left,#010157,#1c0abd);
+    padding: 1rem;
+    align-items: center;
+    box-sizing: 0 0 15px;
+    animation: glow 2s infinite alternate;
+    transition: all 0.8s ease-in-out;
+    backdrop-filter: blur(40px);
+    text-align: center;
+    height: 80vh;
+    margin-top: 8%;
+    z-index: 200;
+    
+
+}
+header{
+    width: 100%;
+    background: linear-gradient(to left,#070733,#3b296d);
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    position: fixed;
+    z-index: 1000;
+
+}
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-left: 25%;
+    width: 50%;
+    border-radius: 0.625rem;
+    background-color: white;
+    height: 2rem;
+
+}
+nav a{
+    color: black;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-size: 1rem;
+    padding-left: 3.5rem;
+
+}
+nav a:nth-child(1){
+    padding-left: 0%;
+
+
+
+
+}
+nav a:hover{
+    font-weight: bold;
+    transition: color 0.3s ease;
+
+}
+#ProfilePhoto {
+    width: 6em;
+    height:6em;
+    border-radius: 50%;
+    overflow: hidden;
+    
+    margin: auto; 
+    display: block;
+    background: rgb(226, 64, 64);
+    object-fit: cover;
+
+}
+.profile-photo{    
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 50%;
+    
+    display: block;
+    object-fit: cover;
+    background: whitesmoke;
+    margin:auto;
+    filter: drop-shadow(0 0 5px );
+
+
+
+
+}
+.profile-pic{
+display: block;
+height: 100%;
+width: 100%;
+
+}
+img#profileImg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    
+
+}
+#logout{
+    background-color: #6C169C;
+    color: white;
+    padding: 0.45rem ;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 30%;
+    align-items: center;
+    align-self: center;
+    box-shadow: 1px 1px 1px rgb(46, 1, 9);
+    margin-bottom: 1rem;
+    display: inline-block;
+
+}
+#logout:hover{
+background-color: rgb(70, 2, 2);
+box-shadow: 0 0 20px red;
+transition: .5s ease-in-out;
+padding: 1em;
+
+}
+#login{
+    background-color: #160078;
+    color: #E8B783;
+    border: none;
+    padding: 0.45rem ;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 0%;
+    margin-bottom: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   display: none;
+    box-shadow: 0 3px 10px #7226FF;
+    width: 30%;
+    margin-bottom: 1rem;
+
+}
+@media (max-width:768px){
+    form{
+        width: 80%;
+        margin-top: 20%;
+        max-height: 36em;
+        
+    }
+    nav{
+        width: 75%;
+        margin-left: 10%;
+
+    }
+    #logout,#login{
+        width: 50%;
+        margin-left: 3%;
+
+    }
+    #profileImg{
+        width: 80%;
+        height: 80%;
+
+    }
+    .profile-photo{
+        margin-left: auto;
+
+    }
+    nav a{
+        padding-left: 1rem;
+
+
+    }
+#sign{
+   #sign{
+    margin-left: 90%;
+    font-size: 10px;
+    margin-top: -1rem;
+
+}
+
+}
+
+}
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px #7939ee, inset 0 0 5px #57273b;
+    }
+    100% {
+        box-shadow: 0 0 20px #62026b, inset 0 0 20px #6d2044;
+    }
+}
+#settings{
+    color: white;
+    cursor: pointer;
+    line-height: 3.5em;
+    float: none;
+    
+}
+#pay{
+    background-color: #01e9f1;
+    color: white;
+    padding: 0.3em 1.2em ;
+    border: none;
+    border-radius: 1em;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 2px ;
+    margin-top: 1rem;
+    text-decoration: none;
+    margin-bottom: 1em;
+
+}
+#pay:hover{
+    background: linear-gradient(to bottom,white,rgb(3, 250, 3));
+    transition: .5s ease-in-out;
+    padding: 0.35em 1.3em;     
+
+}
+a{
+    text-decoration: none;
+    color: white;
+
+}
+#vacate a{
+    color: blue;
+    cursor: pointer;
+    margin: 1rem;
+    text-decoration: underline;
+    text-shadow: 1px 0px 1px white;    
+    font-size: larger;
+    float: none;
+
+}
+#username{
+    color: rgb(129, 6, 6);
+    font-weight: bold;    
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 1px white;
+
+}
+#roomnumber{
+    color: rgb(1, 248, 22);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 1px white;    
+
+}
+#sign{
+    position: absolute;
+    right: 2rem;
+    margin-top: -1rem;
+    padding: 0.5rem 1rem;
+    background-color: #03b0f5;
+    color: white;
+    border: none;
+    border-radius: 0.925rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 5px #03b0f5;
+     right: 1rem;
+        top: 3.2rem;
+        padding: 0.2rem;
+    
+
+}
+.profile{
+    margin-left: 92%;
+    margin-top: -1.82rem;
+    margin-bottom: 1rem;
+    width: 2rem;    
+    height: 2rem;
+    overflow: hidden;
+    border-radius: 50%;
+    box-shadow: 0 0 10px blue;
+
+
+}
+image{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%; 
+    object-fit: cover;
+    overflow: hidden;
+
+}
+#login{
+    margin-left: 20%;
+    width:60%
+
+
+
+
+}
+h2{
+   color: red;
+
+
+
+}
+#sign a{
+    text-decoration: none;
+    color:white;
+
+}
+a{
+    text-decoration: none;
+
+
+}
+body.dark{
+    background-color: #080808 !important;
+    color: white;
+
+}
+body.light{
+    background: linear-gradient(#f0f0f0,#f0f0f0)!important;
+    color: black;
+
+}
+body.developers{
+    background: linear-gradient(to right,#070733,#3b296d) !important;
+    color: #00ff00;
+
+}
+body.dark a, body.developers a{
+color: black;
+
+}
+body.light #settings{
+    color: black;
+
+}
+#hist{
+    width: 90%;
+    text-overflow: hidden;
+    white-space: nowrap;
+    overflow: hidden;
+    color: white;
+    padding-left: 1em;
+    padding-bottom: -1em;
+
+}
+#more{
+    color:#02f502;
+    font-weight: 700;
+    cursor: pointer;
+
+
+}
+#more:hover{
+    color: #02f502;
+    text-shadow: 1px 1px 1px white;
+    font-size: 1.2em;    
+    
+
+}
+.photo-block{
+width: 150px;       
+    height: 150px;  
+    object-fit: cover;  
+    border-radius: 50%; 
+    border: 3px solid #ccc;
+    display: block;     
+    margin: 0 auto;     
+}
+
+
+
+
+
+
+
+
+</style>
+<script>
+
+function setTheme(theme){
+    
+    document.body.className="";
+    document.body.classList.add(theme);
+    localStorage.setItem("theme",theme);
+    
+}
+
+
+  window.addEventListener("load",()=>{
+    const localTheme=localStorage.getItem("theme") || "light";
+    setTheme(localTheme);
+    
+    document.getElementById(localTheme).checked=true;
+    
+    
+});</script>
+
+
+
+</head>
+<body>
+     <header>
+    <nav>
+    <a href="index.html">Home</a>  
+   
+    <a href="HOUSE.HTML">House</a>
+     <a href="ABOUT.HTML">About us</a>
+    
+    
+    </nav>
+    
+    <button id="sign"><a href="LOGIN.HTML">Sign In </a></button>
+    
+    <div class="profile" id="profile">
+    <a href="PROFILE.HTML"><img src="Image9.jpg" alt="profile photo" id="profileImg" ></a>
+   </div>
+    
+    
+    </header>
+        
+    <form action="">        
+            
+    <H2 id="greet">Hello Friend 👋</H2>        
+            
+        <div class="profile-photo" id="ProfilePhoto" >
+            <a href="PROFILE-PIC.HTML" ><img src="" ></a>
+            
+            </div>      
+        
+        
+        <div class=""> 
+            <p id="username">Username</p>
+            <p>Room :<span id="roomnumber"> Room Number</span></p>
+            
+            
+            
+        </div>
+    
+    <button id="logout">LOG OUT</button>
+   
+    <div class="history">
+    <p id="history">Payment History</p>
+    <p id="hist"></p>
+    <a id="more" href="REPORTS.HTML">more...</a>
+    </p>
+    
+    <button id="pay"><a href="RENT.HTML">Pay</a></button>
+    
+    
+    <p id="vacate"><a href="VACATION.HTML">Vacate</a></p><br>
+    <a href="SETTINGS.HTML" id="settings">⚙ Settings</a>
+    </form>
+    
+    <script>
+   const name=localStorage.getItem("username");
+    const room=localStorage.getItem("room")    
+        
+        
+       const roomNo=JSON.parse(room) ;
+       const names=JSON.parse(name); 
+        
+        const user=document.getElementById("username");
+        user.innerText=names;
+        
+        const door=document.getElementById("roomnumber");
+        door.innerText=roomNo;
+        
+        
+        const logout=document.getElementById("logout");
+        
+        
+         const dp = document.getElementById("profile");
+const sign = document.querySelector("#sign");
+
+const logg = localStorage.getItem("loggedInUser");
+const pass1 = localStorage.getItem("password1");
+const pass = localStorage.getItem("password");
+
+function showDp() {
+    if (pass && pass1) {
+        dp.style.display = "none";
+        sign.style.display = "none";
+        
+        
+    } else {
+        dp.style.display = "none";
+        sign.style.display = "block";
+        logout.style.display="none";
+        
+    
+    }
+    
+}
+
+window.onload = showDp;
+
+        logout.addEventListener("click",(e)=>{
+        const namess=document.getElementById("username");
+        
+        
+        namess.style.display="none";
+        
+        localStorage.removeItem("password1");
+        //localStorage.removeItem("password");
+        localStorage.removeItem("username");
+        localStorage.removeItem("room");
+        localStorage.removeItem("email");
+        localStorage.removeItem("email1");
+        localStorage.removeItem("loggedInUser");
+        localStorage.removeItem("floor");
+        localStorage.removeItem("amount");
+        localStorage.removeItem("room");
+        localStorage.removeItem("DateIn");
+        localStorage.removeItem("Date");
+        localStorage.removeItem("transaction");
+        localStorage.removeItem("payments");
+        localStorage.removeItem("history");
+        localStorage.removeItem("myPhoto");
+        
+        alert("You have succesfully logged out of your account")
+        
+        });
+        
+        const greetColor=document.getElementById("greet");
+       
+       function greetUser(){
+        const time=new Date().getHours();
+        if(time<12){
+            
+            greetColor.style.color="rgb(241, 167, 6)";
+            return "Good Morning";
+            
+        }
+        else if(time<18){
+        
+        greetColor.style.color="gold";
+        return "Good Afternoon";
+        
+        
+        }
+        else{
+           
+           greetColor.style.color="rgb(189, 5, 5)";
+         return "Good Evening";
+        
+        
+        }
+        
+       }
+        document.getElementById("greet").innerHTML=greetUser();
+      
+      function displayHist(){
+      const payments=localStorage.getItem("payments");
+      const hist=document.getElementById("hist");    
+      
+      if(payments){
+      
+      const paymentss=JSON.parse(payments);
+      hist.innerText=paymentss;  
+      }else{ 
+        hist.innerHTML="No Transaction History Yet.";
+        hist.style.color="red";
+      }
+    };
+    displayHist(); 
+     
+      const display=document.getElementById("profile");
+      const saved=localStorage.getItem("myPhoto");
+      if(saved){
+        const img=document.createElement('img');
+        img.src=saved;
+        img.className="profile-pic";
+        display.appendChild(img);
+        
+        
+      }    
+
+function retrieveAndDisplayPhoto() {    
+    const savedPhotoDataURL = localStorage.getItem("myPhoto");        
+    const container = document.getElementById("ProfilePhoto");
+    
+    if (savedPhotoDataURL && container) {
+        
+        const img = document.createElement('img');                
+        img.src = savedPhotoDataURL;
+        img.alt = "User Profile Picture";
+                
+        img.className = 'profile-photo';                 
+        container.innerHTML = ''; 
+        container.appendChild(img);
+    } else if (container) {
+        
+        container.innerHTML = 'Profile Photo.';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', retrieveAndDisplayPhoto);
+      
+      
+      
+      
+      
+      
+      
+        
+    </script>
+    
+</body>
+</html>

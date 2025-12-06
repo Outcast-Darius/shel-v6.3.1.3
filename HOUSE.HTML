@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Houses and rooms available</title>   
+       
+       <style>
+    html,body{   
+       padding: 0;
+       margin: 0;
+       
+       
+    }
+    body{
+        background:linear-gradient(to right,#070733,#3b296d );    
+        padding: 0;    
+        margin: 0;
+        background-blend-mode: multiply;
+        align-items: center;
+        display: flex   ;
+        flex-direction: column;
+        min-height: 100vh;
+        margin-top: 0;
+        padding-top: 0;    
+        transition: all 0.8s ease-in-out;
+        background-image: ();
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+
+
+}   
+ header{
+    width: 100%;
+    background: linear-gradient(to left,#070733,#3b296d);
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    position: fixed;
+    z-index: 1000;
+
+}      
+  nav{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        margin-left: 25%;
+        width: 50%;
+        border-radius: 0.625rem;
+        background-color: white;
+        height: 2rem;
+
+    }   
+    nav a{
+        color: black;
+        text-decoration: none;
+        margin: 0 1rem;
+        font-size: 1rem;
+
+    }
+    nav a:hover{
+        font-weight: bold;
+        transition: color 0.3s ease;
+
+    }      
+    #sign{
+    position: absolute;
+    right: 2rem;
+    margin-top: -1rem;
+    padding: 0.5rem 1rem;
+    background-color: #03b0f5;
+    color: white;
+    border: none;
+    border-radius: 0.925rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 0 5px #03b0f5;
+     right: 1rem;
+        top: 3.2rem;
+        padding: 0.2rem;
+    display: block;
+
+}
+.profile{
+    margin-left: 92%;
+    margin-top: -1.82rem;
+    margin-bottom: 1rem;
+    width: 2rem;    
+    height: 2rem;
+    overflow: hidden;
+    border-radius: 50%;
+
+
+
+}
+image{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%; 
+    object-fit: cover;
+    overflow: hidden;
+    display: block;
+
+}
+    @media (max-width: 768px) {
+        
+        nav a{
+            font-size: 0.9rem;
+            padding-left: 0.625rem
+        }
+      nav a:nth-child(4){
+            font-size: 0.9rem;
+            margin-left: 0rem;
+            padding-left: 0.625em;
+       
+    }
+        
+    nav{
+        width: 79%;
+        margin-left: 10%;
+
+        }
+    .house-container{    
+        margin-top: 4em;
+        
+    }
+    .image-content{    
+     width: 30em;   
+     margin-left: 1em;  
+        
+    }
+    .filter{   
+      width:15em;      
+      margin-right: 1em;  
+      padding: 0.225em;  
+      overflow:auto;  
+        
+    }  
+    main{
+      display: inline-flex;  
+      column-count: 2; 
+      grid-template-columns: 70% 20%;  
+      justify-content: center;  
+      margin-bottom: -7em;  
+        
+    }
+    
+}     
+ nav a:active{      
+       text-decoration: underline;
+       font-weight: 700;
+       background-color: rgba(0, 0, 0, 0.3);
+       outline: none;
+       
+ }  
+  .house-container{     
+       display: flex;
+       flex-wrap: wrap;
+       box-sizing: border-box;
+       padding: 1em;
+       
+       justify-content: center;
+       gap: 2em;
+       
+       
+ }
+ .card{      
+       width: 16em;
+       max-height: 20em;
+       box-sizing: border-box;
+       box-shadow: 0 0 30px ;
+       gap: 1em;
+       text-align: center;
+       background: linear-gradient(to right,#8d78eb,#12075c ),linear-gradient(45deg,#8079a0,#181142);
+       padding-bottom: 2em;
+       z-index: 30;
+       background-blend-mode: multiply;
+       
+       
+ }
+ .card img{      
+     height:50%;  
+     width:100%;  
+     object-fit: cover;  
+       
+       
+       
+ }
+ .main{      
+     padding-top: 8.5%;  
+       
+       
+ }
+ input[type="search"]{      
+       position: static;
+       width: 60%;
+       height: 2em;
+       border-radius: 0.625em;
+       border: none;
+       align-self: center;     
+       margin-top: 1em;
+       margin-left: 20%;
+       padding-left: 9%;
+       letter-spacing: 0.25em;
+       background-color: rgb(218, 216, 216);
+       display: none;
+       outline:none;
+       
+ }
+ #show-search-bar{      
+    margin-left:6em;     
+    color: white;   
+       text-shadow: 2px -1px 3px ;
+ }
+ #modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(to bottom,#0707f1 10%,#020224 95%);
+  z-index: 9999;
+  overflow-y: auto; 
+  display: none;  
+  text-align: center;
+  opacity: 0.99; 
+  color: white;  
+
+
+ } 
+   #close {    
+    float: right;     
+    margin-top:1%; 
+    margin-right:2%; 
+    font-weight: 700;          
+    font-size: 1em;          
+    border: none;          
+              
+  }
+.modal img{      
+    width: 30em;      
+    height:20em;   
+    z-index: 15;   
+    box-shadow: 0 0 15px #000008;   
+       
+       
+}    
+ .modal img:hover{      
+       transform: scale(1.1);
+       transition: all 1s ease-in-out;
+       box-shadow: 0 0 20px rgb(0, 0, 12);
+       z-index: 25;
+       
+}
+ body.modal-open {
+  overflow: hidden;
+}
+#close:hover {       
+    background-color: red;      
+     transition: .2s ease-in-out;  
+     border: none;  
+}   
+ .modal{      
+       position: relative;
+       
+       
+ }
+ #view{      
+    width:60% ;    
+    border-radius:0.625em;   
+    height:2rem;  
+    background: linear-gradient(to right,white 20%,rgb(255, 38, 0) 90%) ;   
+    border:none;   
+    color: white;   
+       
+       
+       
+ }
+  #view:hover{     
+    background:linear-gradient(to left,white 10%,rgb(255, 38, 0) 90%);    
+    transition: 1s ease-in-out;   
+    color: rgb(61, 252, 3);  
+    font-size: 1em; 
+    padding-left: 1.5em;  
+    box-shadow: 0 3px 5px rgb(102, 29, 2);   
+       
+  }
+   .card:hover {    
+    box-shadow: 0 2px 25px rgb(0, 0, 26);
+    transition: .5s ease-in-out;  
+    transform:scale(1.1);   
+    border-radius: 0.625em;   
+       
+   }
+ #book{      
+    background: linear-gradient(to right,rgb(2, 250, 2) ,white );     
+    border-radius: 1em;   
+    border: none;   
+    box-shadow: 0 2px 5px ;   
+    padding: 0.625em 1.5em;   
+    color: white;   
+    margin-bottom: 2em;   
+    font-weight: 700;   
+    text-shadow: 1px 1px 1px black;       
+       
+       
+ }
+ #book:hover{       
+      background: linear-gradient(to left,rgb(2, 250, 2) ,white ); 
+       padding: 1em 2em;
+       transition: .5s ease-in-out;
+       border-radius: 1.5em;
+       color: orangered;
+       font-weight: 700;
+       
+ }
+ .heading{      
+     color: #04f72c;  
+     font-weight: 700;  
+     font-size: 18px;  
+     text-shadow: 1px 1px 1px white;  
+       
+       
+       
+ }
+#amount{       
+     color: gold;  
+     font-family: 'Times New Roman', Times, serif;  
+       
+}
+ #room-type{      
+       color: rgb(3, 253, 3);
+       font-weight: 700;
+       font-size: 18px;
+       margin-top: 0;
+       
+ }
+ .card #roomnumber{      
+       color: orangered;
+       font-family: 'Times New Roman', Times, serif;
+       
+ }
+  #rent{     
+       color: gold;
+       
+       
+  }
+  #room{    
+       color: white;
+       
+  }
+footer{
+    background: linear-gradient(to top,#050588,#070733);  
+    flex-wrap: wrap;
+    text-align: center;
+    padding-top: 2rem;    
+    margin-top: 2em;
+    width: 100%;    
+    
+
+}
+footer a{      
+   text-decoration:none;    
+       
+ }
+ #copy{
+    color: white;
+
+}
+#rights{
+    color: white;
+
+}      
+html{
+    scroll-behavior: smooth;
+    transition: all 3s ease-in-out;
+
+}       
+body.dark{
+    background-color: #080808 !important;
+    color: white;
+
+}
+body.light{
+    background: linear-gradient(#f0f0f0,#f0f0f0) !important;
+    color: black;
+
+}
+body.developers{
+    background: linear-gradient(to right,#070733,#3b296d) !important;
+    color: #00ff00;
+
+}
+body.dark a, body.developers a{
+color: black;
+
+}       
+ img#profileImg{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    
+}
+main{
+display: inline-flex;
+flex-direction: row;
+flex-wrap: nowrap;
+width: 100%;
+margin-bottom: -2.5em;
+
+}
+main::after{ 
+ content: "";
+ display: block;
+ clear: both;
+ 
+ 
+}
+main>div{ 
+ float: left;
+ height: 20em;
+ margin-bottom: 2em;
+ margin-top: 8em; 
+ width: 100%;
+position: relative;  
+  
+  
+}
+.image-content{ 
+ width:78%;
+ box-shadow: 0 0 10px black,0 0 10px white;
+ margin-right: 1em;
+ overflow: hidden;
+ margin-left: 1em;
+ position: relative;
+
+ 
+}
+.filter{       
+ width: 20%;      
+ box-shadow: 0 0 10px;      
+ margin-right: 0.625em;     
+ background: rgb(32, 32, 32);         
+ color: white;     
+      
+}     
+ .i-conntent{      
+       
+    object-fit: cover;   
+    clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 90%,
+    90% 90%,
+    90% 100%,
+    0 100%
+  );
+       
+}
+.image-content img{       
+       
+ width: 100%;      
+  height: 100%;            
+       
+       
+}
+ #more{      
+  position: absolute;     
+  bottom: 0;     
+  right: 0;     
+ background-color: #00ff00;    
+ z-index: 50;   
+ cursor: pointer;   
+ border-radius: 1em;      
+ padding: 0.625em 1em;      
+  border: none;         
+  box-shadow: 0 0 10px ;     
+ width: 4em;      
+       
+ }
+ h4{      
+  color: orangered;     
+  text-align: center;     
+      
+       
+ }   
+ #more:hover{      
+   box-shadow: 0 0 15px blue;    
+   z-index:100;    
+   transition:0.5s ease-in-out;    
+   padding: 0.625em 1.5em;    
+       
+ }  
+       
+       
+       
+       
+       
+       
+       </style>
+       
+<script>
+       function setTheme(theme){
+    
+    document.body.className="";
+    document.body.classList.add(theme);
+    localStorage.setItem("theme",theme);
+    
+}
+
+
+  window.addEventListener("load",()=>{
+    const localTheme=localStorage.getItem("theme") || "light";
+    setTheme(localTheme);
+    
+    document.getElementById(localTheme).checked=true;
+    
+    
+});
+</script>
+
+       
+       
+       
+</head>
+       <body>
+        <header>
+        <nav>
+    <a href="index.html">Home</a>    
+    <a href="RENT.HTML">Pay</a>
+    <a href="HOUSE.HTML">House</a>
+    <a href="ABOUT.HTML">About </a>
+    
+    </nav>
+    
+    <button id="sign"><a href="LOGIN.HTML">Sign In </a></button>
+    
+    <div class="profile" id="profile">
+    <a href="PROFILE.HTML"><img src="" alt="profile photo" id="profileImg" ></a>
+   </div>
+        
+        <input type="search" name="search" id="search" placeholder="&#X1F50D  search for available rooms... " >
+       <!--<p id="show-search-bar" title="Search">&#X1F50D</p>-->
+        
+        
+        </header>
+        
+        <main>
+        <div class="image-content">
+        <div class="i-content">
+        <img src="Image6.jpg" alt="">
+        </div>
+        <button id="more">View</button>
+        </div>
+        <div class="filter" >
+            
+            <h4>Filter</h4>
+            
+            <input type="radio" name="rooms" id="bedsitter" value="Bedsitter"> Bedsitter <br>
+            <input type="radio" name="rooms" id="one-bedroom" value="One Bedroom">1 Bedroom<br>
+            <input type="radio" name="rooms" id="two-bedroom" value="Two Bedroom">2 Bedroom<br>
+            <input type="radio" name="rooms" id="three-bedroom" value="Three Bedroom">3 Bedroom<br>
+            <input type="radio" name="rooms" id="shop" value="Shop">Shops<br>
+            <input type="radio" name="rooms" id="lodge" value="Lodge">Lodges
+        
+        </div>
+        
+        
+        </main> 
+        
+        <section class="main">
+        
+        
+          <div class="modal" id="modal">
+          
+        <!--This div is used to show more information about a house or specific room -->
+        
+        
+        </div>
+        
+        <div class="house-container" id="container">
+            
+            
+        <!--houses will be injected using javascript-->
+        
+        
+        
+        </div>
+      
+        
+       </section>
+        
+        <footer>
+        
+        <div class="contact">
+        <h3>Developed by:</h3>
+        
+        
+    <p id="user">Outcast DHO</p>
+    </div>
+    
+    <p id="copy">&copy;OPG House and Real estates &reg;</p>
+   <p id="rights"> All Rights Reserved  @2025</p>   
+    
+        
+        
+        </footer>
+        
+<script>
+         
+    const dp = document.getElementById("profile");
+    const sign = document.querySelector("#sign");
+
+    const logg = localStorage.getItem("loggedInUser");
+    const pass1 = localStorage.getItem("password1");
+    const pass = localStorage.getItem("password");
+
+    function showDp() {
+    if (pass && pass1) {
+        dp.style.display = "block";
+        sign.style.display = "none";
+    } else {
+        dp.style.display = "none";
+        sign.style.display = "block";
+      }
+    }
+
+    window.onload = showDp;
+        
+        
+        const houses=[
+            {
+                room:1,
+                type:"Shop",
+                rent:12000,
+                pic:"Image6.jpg",
+                floor:"Ground floor",
+                location:"Tassia",
+                bookedRoom:false
+                
+            },
+            {
+                room:2,
+                type:"Shop",
+                rent:12000,
+                pic:"Image7.jpg",
+                floor:"Ground floor",
+                location:"Tassia",
+                bookedRoom:false
+                
+            },
+            {
+                room:3,
+                type:"Shop",
+                rent:12000,
+                pic:"Image13.jpg",
+                floor:"Ground floor",
+                location:"Tassia",
+                bookedRoom:false
+                
+            },
+            {
+                room:4,
+                type:"Shop",
+                rent:12000,
+                pic:"images26.jpg",
+                floor:"Ground floor",
+                location:"Tassia",
+                bookedRoom:false
+                
+            },
+            {
+                room:5,
+                type:"Shop",
+                rent:12000,
+                pic:"Image16.jpg",
+                floor:"Ground floor",
+                location:"Tassia",
+                bookedRoom:false
+                
+            },
+            {
+                room:6,
+                type:"Shop",
+                rent:12000,
+                pic:"images23.jpg",
+                floor:"Ground floor",
+                location:"Tassia",
+                bookedRoom:false
+                
+            },
+            {
+                room:7,
+                type:"Shop",
+                rent:12000,
+                pic:"Image21.jpg",
+                floor:"Ground floor",
+                location:"Tassia",
+                bookedRoom:false
+                
+            },
+        
+            {
+                room:8,
+                type:"Shop",
+                rent:12000,
+                pic:"images25.jpg",
+                floor:"Ground floor",
+                location:"Tassia",
+                bookedRoom:false
+                
+            },
+            {
+                room:9,
+                type:"Shop",
+                rent:12000,
+                pic:"Image11.jpg",
+                floor:"Ground floor",
+                location:"Tassia",
+                bookedRoom:false
+                
+            },
+            {
+                room:101,
+                type:"Two Bedroom",
+                rent:17000,
+                pic:"Image5.jpg",
+                location:"Tassia",
+                floor:"1st floor",
+                bookedRoom:false
+                
+            },
+            {
+                room:102,
+                type:"Bedsitter",
+                rent:10000,
+                pic:"Image6.jpg",
+                location:"Tassia",
+                floor:"1st floor",
+                bookedRoom:false
+                
+            },
+            {
+                room:103,
+                type:"One Bedroom",
+                rent:13000,
+                pic:"Image6.jpg",
+                location:"Tassia",
+                floor:"1st floor",
+                bookedRoom:false
+                
+            },
+            {
+                room:104,
+                type:"Bedsitter",
+                rent:10000,
+                pic:"Image6.jpg",
+                location:"Tassia",
+                floor:"1st floor",
+                bookedRoom:false
+                
+            },
+            {
+                room:105,
+                type:"Two Bedroom",
+                rent:17000,
+                pic:"Image6.jpg",
+                location:"Tassia",
+                floor:"1st floor",
+                bookedRoom:false
+                
+            },
+            {
+                room:106,
+                type:"One Bedroom",
+                rent:13000,
+                pic:"Image16.jpg",
+                location:"Tassia",
+                floor:"1st floor",
+                bookedRoom:false
+                
+            },
+            {
+                room:107,
+                type:"Bedsitter",
+                rent:10000,
+                pic:"Image6.jpg",
+                location:"Tassia",
+                floor:"1st floor",
+                bookedRoom:false
+                
+            },
+            {
+                room:108,
+                type:"One Bedroom",
+                rent:13000,
+                pic:"Image14.jpg",
+                location:"Tassia",
+                floor:"1st floor",
+                bookedRoom:false
+                
+            },
+            {
+                room:109,
+                type:"Two Bedroom",
+                rent:17000,
+                pic:"Image6.jpg",
+                location:"Tassia",
+                floor:"1st floor",
+                bookedRoom:false
+                
+            },
+            {
+                room:201,
+                type:"Two Bedroom",
+                rent:17000,
+                pic:"Image6.jpg",
+                location:"Tassia",
+                floor:"2nd floor",
+                bookedRoom:false
+                
+            },
+            {
+                room:202,
+                type:"Bedsitter",
+                rent:10000,
+                pic:"Image6.jpg",
+                location:"Tassia",
+                floor:"2nd floor",
+                bookedRoom:false
+        
+            },
+            {
+                room:203,
+                type:"One Bedroom",
+                rent:13000,
+                pic:"Image6.jpg",
+                location:"Tassia",
+                floor:"2nd floor"
+        
+            },
+            {
+                room:204,
+                type:"Bedsitter",
+                rent:10000,
+                pic:"Image6.jpg",
+                location:"Tassia",
+                floor:"2nd floor",
+                bookedRoom:false
+                
+            },
+            {
+                room:205,
+                type:"Two Bedroom",
+                rent:17000,
+                pic:"Image6.jpg",
+                location:"Tassia",
+                floor:"2nd floor",
+                bookedRoom:false
+                
+            },
+            {
+                room:206,
+                type:"One Bedroom",
+                rent:13000,
+                pic:"Image6.jpg",
+                location:"Tassia",
+                floor:"2nd floor",
+                bookedRoom:false
+                
+            },
+            {
+                room:207,
+                type:"Bedsitter",
+                rent:10000,
+                pic:"Image6.jpg",
+                location:"Tassia",
+                floor:"2nd floor",
+                bookedRoom:false
+                
+            },
+            {
+                room:208,
+                type:"One Bedroom",
+                rent:13000,
+                pic:"Image6.jpg",
+                location:"Tassia",
+                floor:"2nd floor",
+                bookedRoom:false
+                
+            },
+            {
+                room:209,
+                type:"Two Bedroom",
+                rent:17000,
+                pic:"Image13.jpg",
+                location:"Tassia",
+                floor:"2nd floor",
+                bookedRoom:false
+                
+            },
+            {
+                room:301,
+                type:"Two Bedroom",
+                rent:17000,
+                pic:"Image9.jpg",
+                location:"Tassia",
+                floor:"3rd Floor",
+                bookedRoom:false
+                
+            },
+            {
+                room:305,
+                type:"Two Bedroom",
+                rent:17000,
+                pic:"Image3.jpg",
+                location:"Tassia",
+                floor:"3rd Floor",
+                bookedRoom:false
+                
+            },
+            {
+                room:302,
+                type:"Bedsitter",
+                rent:10000,
+                pic:"Image2.jpg",
+                location:"Tassia",
+                floor:"3rd Floor",
+                bookedRoom:false
+                
+            },
+            {
+                room:303,
+                type:"One Bedroom",
+                rent:13000,
+                pic:"Image5.jpg",
+                location:"Tassia",
+                floor:"3rd Floor",
+                bookedRoom:false
+                
+            },
+            {
+                room:304,
+                type:"Bedsitter",
+                rent:10000,
+                pic:"Image7.jpg",
+                location:"Tassia",
+                floor:"3rd Floor",
+                bookedRoom:false
+                
+            },
+        
+        
+        
+        ];
+        
+        localStorage.setItem("houses",JSON.stringify(houses));
+        
+        const housedisplay=JSON.parse(localStorage.getItem("house"))|| [];
+        
+            housedisplay.forEach(room=>{
+                if(room.bookedRoom) return;
+            });
+        
+        
+        const rooms=document.getElementById("container");
+        
+        function showRooms(housing){
+            
+        rooms.innerHTML='';
+        housing.forEach(house=>{
+        const card=document.createElement("div");
+        card.classList.add("card" );
+        
+        card.innerHTML=`<div class="room-card"  data-room${house.room}></div>
+       <img src="${house.pic}" title="This house is a ${house.type} located at ${house.location}. Click 'view' to see more information">
+            <p id="room-type">${house.type}</p>
+            <p id="room">ROOM <span id="roomnumber">${house.room}</span></p>
+            <p id="rent">Rent Ksh <span id="amountt">${house.rent}</span></p>
+           
+            </div>
+        
+            <button id="view" onclick="displayMoreInformation(${house.room})" ${house.room}>View</button>
+            
+        
+        `;
+        
+        
+        rooms.appendChild(card);
+        });
+        }
+        
+        
+        showRooms(houses);
+        
+       /*const find=document.getElementById("show-search-bar").addEventListener("click",(e)=>{ 
+            const search=document.getElementById("search");
+            const lens=document.getElementById("show-search-bar");
+            
+            search.style.display="block";
+            lens.style.display="none";
+                  
+        
+       });*/
+   const modalWindow=document.getElementById("modal");     
+   
+   
+   function displayMoreInformation(roomNumber) {
+     
+  
+  const roomData = houses.find(r => r.room === roomNumber);
+
+
+  if (!roomData) {
+    alert("Room not found!");
+    return;
+  }
+  
+
+  document.getElementById("modal").innerHTML = `
+    <button id="close" >&times</button>
+    <h2>${roomData.type}</h2>
+    <!--<p id="describe"><span class="heading">Description</span><br>This room <!--${roomData.description}--> </p>
+    <img src="${roomData.pic}"    title="Image of ${roomData.type} at ${roomData.location}">
+    <p id="describe"><span class="heading">Description</span><br>${roomData.description}</p>
+    <p id="local"><span class="heading">Location </span><br><span id="location">${roomData.location}</span></p>
+    <p id="room"><span class="heading">Room Number</span><br><span id="doorNumber">${roomData.room}</span></p>
+    <p id="floor"><span class="heading">Floor</span><br><span id="floorNumber">${roomData.floor}</span></p>
+    <p id="deposit"><span class="heading">Deposit and Monthly rent</span><br>Deposit of ksh <span id="amount"> ${roomData.rent}</span> (refundable)<br>Monthly Rent Ksh <span id="amount"> ${roomData.rent}</span> Payable through mpesa or bank account</p>
+     
+
+
+  <button id="book" onclick="booking()">BOOK</button>
+  
+  `;
+
+  const modal=document.getElementById("modal").style.display = "block";
+   
+ //document.body.style.overflow="hidden";
+  
+ 
+
+  document.getElementById("close").addEventListener("click", () => {
+        document.getElementById("modal").style.display = "none";
+        //document.body.style.overflow=""; 
+   
+   
+   
+    });
+
+
+
+   }
+
+   
+   
+    function close(){
+        const modal=document.getElementById("modal");
+        modal.style.display="none";
+  
+  document.body.style.overflow="";
+  
+    }
+        
+  function booking(){     
+       
+      
+       
+       const roomNumber=document.getElementById("doorNumber").innerHTML;
+       const room=roomNumber.textcontent;
+       
+       localStorage.setItem("room",JSON.stringify(String(roomNumber)));
+       
+       const deposit=document.getElementById("amount").innerHTML;       
+       const floor=document.getElementById("floorNumber").innerHTML;       
+       const loc=document.getElementById("location").innerHTML;       
+       const location=loc.textcontent;         
+        
+       localStorage.setItem("floor",JSON.stringify(String(floor)));   
+       localStorage.setItem("amount",JSON.stringify(Number(deposit)));   
+       localStorage.setItem("location",JSON.stringify(String(location)));   
+       
+       
+        window.location.href="BOOK.HTML";
+  }
+       
+   function displayFilterdRooms(filterdRoom) {
+    rooms.innerHTML = "";
+    filterdRoom.forEach(house => {
+        
+       const card=document.createElement("div");
+        card.classList.add("card" );
+        
+        card.innerHTML=`<div class="room-card"  data-room${house.room}></div>
+       <img src="${house.pic}" title="This house is a ${house.type} located at ${house.location}. Click 'view' to see more information">
+            <p id="room-type">${house.type}</p>
+            <p id="room">ROOM <span id="roomnumber">${house.room}</span></p>
+            <p id="rent">Rent Ksh <span id="amountt">${house.rent}</span></p>
+           
+            </div>
+        
+            <button id="view" onclick="displayMoreInformation(${house.room})" ${house.room}>View</button>
+            
+        
+        `;
+        rooms.appendChild(card);
+   });
+}
+    
+       
+   const availRooms=document.getElementsByClassName("filter");       
+  
+   function filterRooms() {
+    const selectedRadio = document.querySelector('input[name="rooms"]:checked');
+    if (!selectedRadio) return; // exit if none is selected
+
+    const selected = selectedRadio.value;
+    const filtered = houses.filter(room => room.type === selected); 
+    displayFilterdRooms(filtered);
+}
+   
+   
+  const radios=document.getElementsByName("rooms");
+  radios.forEach(radio=>radio.addEventListener("change",filterRooms));      
+  filterRooms();     
+       
+  function retrieveAndDisplayPhoto() {    
+    const savedPhotoDataURL = localStorage.getItem("myPhoto");        
+    const container = document.getElementById("profile");
+    
+    if (savedPhotoDataURL && container) {
+    
+    const link = document.createElement('a');
+    
+    link.href = "PROFILE.HTML"; 
+    
+    const img = document.createElement('img');
+    img.src = savedPhotoDataURL;
+    img.alt = "User Profile Picture";
+    img.className = 'profile-photo';     
+    link.appendChild(img); 
+    
+    container.innerHTML = '';         
+    container.appendChild(link); 
+    
+} else if (container) {
+    
+    container.innerHTML = '<a href="PROFILE.HTML">Profile Photo.</a>';
+}
+   
+}
+
+document.addEventListener('DOMContentLoaded', retrieveAndDisplayPhoto);      
+       
+       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+</script>
+        
+       </body>
+</html>
+       
+       
+       
+       

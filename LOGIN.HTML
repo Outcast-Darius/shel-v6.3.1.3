@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login/authentication</title>
+    
+    <style>
+    body{
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to right,#020224,#4c23bb );
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        object-fit: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url;
+        background-size: cover;
+    
+    }
+    form{
+        background-color:#E8B783;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 8px rgb(22, 22, 22) ;
+        width: 40%;
+        display: grid;
+        grid-template-columns: 30% 70%;
+        align-items: center;
+        backdrop-filter: blur(40px);
+        background: linear-gradient(to left,#0f0f50,#56497a);
+        transition: all 0.8s ease-in-out;
+        animation: glow 2s infinite alternate;
+        height: auto;
+        
+    }
+    fieldset{
+        border: none;
+        margin-bottom: 15px;
+        width: auto;    
+    
+    }
+    input{
+        width: 90%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 1.5em;
+        outline: none;
+        height: 1.8em;
+    
+    }
+    #signIn{
+        background-color: #6C169C;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        margin-top: 10px;
+        width: 70%;
+        align-items: center;
+        align-self: center;
+        box-shadow: 1px 1px 1px rgb(46, 1, 9);
+        margin-left: 15%;
+    
+    
+    
+    }
+    #signIn a{
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        font-family: 'Times New Roman', Times, serif;
+        
+        
+    }
+    
+    
+    #signIn:hover{
+        background-color: #7e0da0;
+        transition: .5s ease;
+        box-shadow: 0 2px 10px #777503;
+        
+    }
+    .content{
+       font-size: 15px;
+        
+        margin-bottom: 20px;
+        width: auto;
+        gap: 1rem;
+        
+        
+    }
+    .text{
+        font-size: 10px;
+        margin-bottom: 20px;
+        width: auto;
+        gap: 1rem;
+        font-family: 'Times New Roman', Times, serif;
+        
+        
+    }
+    #option{
+        text-align: center;
+        font-size: 14px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        color: grey;
+        align-self: center;
+    }
+    #f,#g,#x{
+        background-color:white;
+        color: black;
+        padding: 8px 8px;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        margin: 5px;
+        width:40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        height: 40px;
+        box-shadow: 1px 2px 1.5px rgb(37, 37, 37);
+        
+    }
+    #f:hover,#g:hover,#x:hover{
+        box-shadow: 0 2px 5px rgb(14, 0, 27);
+        transition: .8s ease-in-out;
+        cursor: pointer;
+        width: 2.6rem;
+        height: 2.6rem;
+    }    
+     #login{
+        text-decoration: none;
+        font-family:'Times New Roman', Times, serif ;  
+        font-weight: bold;
+        
+        
+        
+     }
+    #facebook,#google,#twitter{
+        color: #3b5998;
+        font-weight: bold;
+        font-size: 25px;
+        margin-right: 8px;
+        
+   
+   
+    }
+    #google{
+        color: #37db45;
+        text-decoration: none;
+    
+    }
+    #twitter{
+        color: #010f18;
+    
+    
+    }
+    #signup{
+        background-color: #8d043d;
+        text-align: center;
+        margin-bottom: 10px;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 20px;
+        color: #E8B783;
+        margin: 20px 0px 20px 0px;
+        cursor: pointer;
+        box-shadow: 1px 1px 1px rgb(82, 3, 3);
+        width: 60%;
+        align-self: center
+        
+    }
+    a{
+        text-decoration: none;
+        
+        
+    }
+    #signup a{
+        color: #E8B783;
+        font-weight: bold;
+        
+    }
+    .social{
+        display: grid;
+        grid-template-columns: 40% 30% 30%;
+       
+        
+        
+    }
+    h2{
+        margin: 20px 0;
+        padding: 0;
+        font-size: 25px;
+        color: #ca0ae4;
+        text-align: center;
+        text-shadow: #6C169C 1px 1px 2px;
+        
+        
+    }  
+     h2:hover{
+        color: #f505c1;
+        transition: .7s ease-in-out;
+        text-shadow: #bd05f5 1px 1px 2px;   
+        
+        
+     }   
+     
+    #signup:hover{
+        background-color: #6d036d;
+        transition: .7s ease-in-out;
+        box-shadow: 0 2px 5px rgb(136, 145, 13);
+        
+        
+        
+    }
+    #passw{
+        width: 90%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 1.5em;
+       
+        
+        
+    }
+    #pasw{
+         display: flex;
+        flex-direction: row;
+        margin-bottom: 0;
+        padding-bottom: 0%;
+        
+        
+    }
+    #pass{
+        margin-left: 10px;
+        cursor: pointer;
+        width: auto;
+        
+    }
+    
+    @keyframes glow {
+        from {
+            box-shadow: 0 0 10px #2c2115, 0 0 20px #3f2e1c, 0 0 30px #3d2b18, 0 0 40px #41290f;
+        }
+        to {
+            box-shadow: 0 0 20px #90a056, 0 0 30px #616035, 0 0 40px #373b0d, 0 0 50px #3b3b07;
+        }
+    }
+    @media (max-width: 768px){
+        form{
+            width: 70%;
+            grid-template-columns: 100%;
+        }
+        #signIn{
+            width: 80%;
+            margin-left: 8%;
+        
+        
+        }
+        #signup{
+            width: 40%;
+            align-self: center;
+            margin-left: 25%;
+        }  
+        input{  
+         height: 1.5em; 
+          border-radius: 1.5em;
+          
+          
+        }
+        #passw{  
+         border-radius: 1.5em; 
+          
+        }
+          
+    }
+    #forgot a{
+        color: blue;
+        position:relative;
+        margin-left: 60%;
+        font-weight: normal;
+        font-family: 'Times New Roman', Times, serif;
+        margin-bottom: 0;
+        margin-top: 0;
+        padding-top: 0%;
+        font-size: 12px;
+    
+    
+    }
+    #forgot a:hover{
+        text-decoration: underline;      
+        transition: .9s ease-in-out;
+    
+    }
+    #back{
+        color: rgb(66, 2, 2);
+        padding-top: 1em;
+               
+    
+    }
+    #back:hover{
+        color: blue;
+        padding-right: 0.625rem;
+        transition: .5s ease-in-out;
+        text-shadow: 0 0 8px white;
+        font-size: large;
+        
+    }
+    
+    
+    
+    
+    
+    
+    </style>
+    
+</head>
+<body>
+    <FORM>
+     <div class="CONTENT">
+        <H2> HELLO 👋</H2>
+    <div class="TEXT">
+    Welcome to the <span id="login">LOGIN</span> page.<br>Please enter your credentialas to proceed.
+     </div>
+    
+    <div class="REGISTER">
+    <button id="signup"><A href="SIGN UP.HTML">Sign Up</A></button>
+    
+    </div>    
+    </div>
+    
+    <div class="CREDENTIAL">
+   <FIELDSET>  
+   <FIELDSET>  
+        <LEGEND>Enter Email or Username </LEGEND>
+    <input id="email" autocomplete="additional-name" type="text" placeholder="Email or Username" >
+    </FIELDSET>
+    <FIELDSET id="pasw">
+    <LEGEND>Password</LEGEND>
+    <input id="passw" autocomplete="additional-name" type="password" placeholder="Password" ><input ondblclick="show()" type="checkbox" name="password" id="pass" onclick="if(this.checked){passw.type='text'}else{passw.type='password'}">
+    <br>
+          
+    
+    </FIELDSET>
+     <div class="reset">
+            <P id="forgot"><a href="FORGOT.HTML">forgot Password?</a></P>
+            
+        </div>     
+    
+    <button id="signIn">Sign In</button>
+    
+    <hr>
+    <p id="option">Or Login With</p>
+    <div class="social">
+    <button id="f"><a href="www.facebook.com"><span id="facebook">f</span></a></button>
+    <button id="g"><a href="www.google.com"><span id="google">G</span></a></button>
+    <button id="x"><a href="www.tweeter.com"><span id="twitter">X</span></a></button>
+    
+    <a href="index.html" id="back">Back</a>
+    
+    </div>
+    
+    
+   </FIELDSET>
+    
+    </div>
+    
+    
+    </FORM>
+    
+    <script>
+    
+    const next=document.getElementById("signIn");
+    
+    next.addEventListener("click",(e)=>{
+    const email=document.getElementById("email").value.trim();
+    const user=document.getElementById("email").value.trim();
+    const pass=document.getElementById("passw").value.trim();
+    
+    localStorage.setItem("password1",JSON.stringify((pass)));
+    localStorage.setItem("email1",JSON.stringify((email)));
+    localStorage.setItem("user",JSON.stringify((user)));
+    
+    const pass2=localStorage.getItem("password");
+    const email2=localStorage.getItem("email");
+    const names=localStorage.getItem("username");
+    const name=localStorage.getItem("user");
+    
+    const pass1=JSON.parse(pass2);
+    const email1=JSON.parse(email2);
+    const name1=JSON.parse(names);
+    const username=JSON.parse(name);
+    
+        if(email && pass){
+          if(email===email1 && pass===pass1 || username===name1 && pass===pass1 || pass===pass1 && username===email   ){
+          
+           
+            window.location.href="index.html";
+        
+        alert("Welcome " + name1  + " to OPG HOUSES AND REAL ESTATE. "  );
+          
+          localStorage.setItem("loggedInUser",JSON.stringify(name1));
+          
+          
+          
+          
+          }
+        else if(email===email1 && (!(pass===pass1))){
+            alert("Incorrect password please enter correct password.");
+            return;
+        
+        }
+        else if(pass===pass1 && (!(email===email1))){
+        
+        alert("Your credentials does not match. \n Try using your Username.");
+        return;
+        
+        }
+        else 
+            {
+        
+        
+        alert("Oops! You do not have OPG account.\n Please create one.");
+        return;
+        
+        }
+        }
+    else if(email && (!pass)){
+        alert("Please enter your password.");
+        return;
+        
+    }
+    else if(pass && (!email)){
+        alert("Email field can't be empty. \n Please enter your email.");
+        return;
+        
+    }
+    else{
+    alert("Please fill in your details to proceed.");
+    return;
+    
+    }
+    
+    
+   
+    
+    });
+    
+    
+    
+    
+    
+    
+    </script>
+    
+    
+</body>
+</html>
